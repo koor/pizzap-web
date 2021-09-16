@@ -1,0 +1,187 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: src/components/AccountDetails/index.tsx
+msgid "(clear all)"
+msgstr "(clear all)"
+
+#: src/components/Menu/index.tsx
+msgid "About"
+msgstr "About"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Account"
+msgstr "Account"
+
+#: src/components/Menu/index.tsx
+msgid "Analytics"
+msgstr "Analytics"
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Approve Token"
+msgstr "Approve Token"
+
+#: src/components/WalletModal/index.tsx
+msgid "Back"
+msgstr "Back"
+
+#: src/components/WalletModal/index.tsx
+msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+msgstr "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+
+#: src/components/AccountDetails/index.tsx
+msgid "Change"
+msgstr "Change"
+
+#: src/components/Menu/index.tsx
+msgid "Claim UNI"
+msgstr "Claim UNI"
+
+#: src/components/Menu/index.tsx
+msgid "Code"
+msgstr "Code"
+
+#: src/components/ModalViews/index.tsx
+msgid "Confirm this transaction in your wallet"
+msgstr "Confirm this transaction in your wallet"
+
+#: src/components/WalletModal/index.tsx
+msgid "Connect to a wallet"
+msgstr "Connect to a wallet"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Connected with {name}"
+msgstr "Connected with {name}"
+
+#: src/components/AccountDetails/Copy.tsx
+msgid "Copied"
+msgstr "Copied"
+
+#: src/components/AccountDetails/index.tsx
+#: src/components/AccountDetails/index.tsx
+msgid "Copy Address"
+msgstr "Copy Address"
+
+#: src/components/Menu/index.tsx
+msgid "Dark Theme"
+msgstr "Dark Theme"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Disconnect"
+msgstr "Disconnect"
+
+#: src/components/Menu/index.tsx
+msgid "Discord"
+msgstr "Discord"
+
+#: src/components/Menu/index.tsx
+msgid "Docs"
+msgstr "Docs"
+
+#: src/components/WalletModal/PendingView.tsx
+#: src/components/WalletModal/index.tsx
+msgid "Error connecting"
+msgstr "Error connecting"
+
+#: src/components/WalletModal/index.tsx
+msgid "Error connecting. Try refreshing the page."
+msgstr "Error connecting. Try refreshing the page."
+
+#: 
+#~ msgid "Home"
+#~ msgstr "Home"
+
+#: src/components/WalletModal/PendingView.tsx
+msgid "Initializing..."
+msgstr "Initializing..."
+
+#: src/components/WalletModal/index.tsx
+msgid "Install Metamask"
+msgstr "Install Metamask"
+
+#: src/components/Menu/index.tsx
+msgid "Language"
+msgstr "Language"
+
+#: src/components/Menu/index.tsx
+msgid "Light Theme"
+msgstr "Light Theme"
+
+#: src/components/Menu/index.tsx
+msgid "Menu"
+msgstr "Menu"
+
+#: src/components/Web3ReactManager/index.tsx
+msgid "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device."
+msgstr "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device."
+
+#: src/components/WalletModal/index.tsx
+msgid "Please connect to the appropriate Ethereum network."
+msgstr "Please connect to the appropriate Ethereum network."
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "Proposal Submitted"
+msgstr "Proposal Submitted"
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Proposed Action"
+msgstr "Proposed Action"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Recent Transactions"
+msgstr "Recent Transactions"
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "Return"
+msgstr "Return"
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Select an action"
+msgstr "Select an action"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Show Portis"
+msgstr "Show Portis"
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "Submitting Proposal"
+msgstr "Submitting Proposal"
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Transfer Token"
+msgstr "Transfer Token"
+
+#: src/components/WalletModal/PendingView.tsx
+msgid "Try Again"
+msgstr "Try Again"
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "View on Etherscan"
+msgstr "View on Etherscan"
+
+#: src/components/AccountDetails/index.tsx
+#: src/components/AccountDetails/index.tsx
+msgid "View on Explorer"
+msgstr "View on Explorer"
+
+#: src/components/ModalViews/index.tsx
+msgid "View transaction on Explorer"
+msgstr "View transaction on Explorer"
+
+#: src/components/WalletModal/index.tsx
+msgid "Wrong Network"
+msgstr "Wrong Network"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Your transactions will appear here..."
+msgstr "Your transactions will appear here..."

@@ -1,0 +1,183 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: src/components/AccountDetails/index.tsx
+msgid "(clear all)"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "About"
+msgstr ""
+
+#: src/components/AccountDetails/index.tsx
+msgid "Account"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Analytics"
+msgstr ""
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Approve Token"
+msgstr "準予代幣"
+
+#: src/components/WalletModal/index.tsx
+msgid "Back"
+msgstr ""
+
+#: src/components/WalletModal/index.tsx
+msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+msgstr ""
+
+#: src/components/AccountDetails/index.tsx
+msgid "Change"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Claim UNI"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Code"
+msgstr ""
+
+#: src/components/ModalViews/index.tsx
+msgid "Confirm this transaction in your wallet"
+msgstr ""
+
+#: src/components/WalletModal/index.tsx
+msgid "Connect to a wallet"
+msgstr ""
+
+#: src/components/AccountDetails/index.tsx
+msgid "Connected with {name}"
+msgstr ""
+
+#: src/components/AccountDetails/Copy.tsx
+msgid "Copied"
+msgstr ""
+
+#: src/components/AccountDetails/index.tsx
+#: src/components/AccountDetails/index.tsx
+msgid "Copy Address"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Dark Theme"
+msgstr ""
+
+#: src/components/AccountDetails/index.tsx
+msgid "Disconnect"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Discord"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Docs"
+msgstr ""
+
+#: src/components/WalletModal/PendingView.tsx
+#: src/components/WalletModal/index.tsx
+msgid "Error connecting"
+msgstr ""
+
+#: src/components/WalletModal/index.tsx
+msgid "Error connecting. Try refreshing the page."
+msgstr ""
+
+#: src/components/WalletModal/PendingView.tsx
+msgid "Initializing..."
+msgstr ""
+
+#: src/components/WalletModal/index.tsx
+msgid "Install Metamask"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Language"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Light Theme"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Menu"
+msgstr ""
+
+#: src/components/Web3ReactManager/index.tsx
+msgid "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device."
+msgstr ""
+
+#: src/components/WalletModal/index.tsx
+msgid "Please connect to the appropriate Ethereum network."
+msgstr ""
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "Proposal Submitted"
+msgstr ""
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Proposed Action"
+msgstr "提議操作"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Recent Transactions"
+msgstr ""
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "Return"
+msgstr ""
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Select an action"
+msgstr "選擇操作"
+
+#: src/components/AccountDetails/index.tsx
+msgid "Show Portis"
+msgstr ""
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "Submitting Proposal"
+msgstr ""
+
+#: src/pages/Test/ActionSelector.tsx
+msgid "Transfer Token"
+msgstr "代幣轉帳"
+
+#: src/components/WalletModal/PendingView.tsx
+msgid "Try Again"
+msgstr ""
+
+#: src/pages/Test/SubmissionModal.tsx
+msgid "View on Etherscan"
+msgstr ""
+
+#: src/components/AccountDetails/index.tsx
+#: src/components/AccountDetails/index.tsx
+msgid "View on Explorer"
+msgstr ""
+
+#: src/components/ModalViews/index.tsx
+msgid "View transaction on Explorer"
+msgstr ""
+
+#: src/components/WalletModal/index.tsx
+msgid "Wrong Network"
+msgstr ""
+
+#: src/components/AccountDetails/index.tsx
+msgid "Your transactions will appear here..."
+msgstr ""
