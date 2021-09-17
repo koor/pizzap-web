@@ -12,6 +12,12 @@ export enum SupportedChainId {
   ARBITRUM_RINKEBY = 421611,
   OPTIMISM = 10,
   OPTIMISTIC_KOVAN = 69,
+
+  MAIN_CHINA = 2099156,
+  MAIN_CHILD = 8007736,
+
+  TESTNET = 16658437,
+  TEST_CHILD = 10067275,
 }
 
 export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
@@ -25,6 +31,11 @@ export const ALL_SUPPORTED_CHAIN_IDS: SupportedChainId[] = [
   SupportedChainId.ARBITRUM_RINKEBY,
   SupportedChainId.OPTIMISM,
   SupportedChainId.OPTIMISTIC_KOVAN,
+
+  SupportedChainId.MAIN_CHINA,
+  SupportedChainId.MAIN_CHILD,
+  SupportedChainId.TESTNET,
+  SupportedChainId.TEST_CHILD,
 ]
 
 export const L1_CHAIN_IDS = [
@@ -59,8 +70,7 @@ export interface L2ChainInfo extends L1ChainInfo {
 
 type ChainInfo = { readonly [chainId: number]: L1ChainInfo | L2ChainInfo } & {
   readonly [chainId in SupportedL2ChainId]: L2ChainInfo
-} &
-  { readonly [chainId in SupportedL1ChainId]: L1ChainInfo }
+} & { readonly [chainId in SupportedL1ChainId]: L1ChainInfo }
 
 export const CHAIN_INFO: ChainInfo = {
   [SupportedChainId.ARBITRUM_ONE]: {
@@ -123,6 +133,34 @@ export const CHAIN_INFO: ChainInfo = {
     explorer: 'https://optimistic.etherscan.io/',
     infoLink: 'https://info.uniswap.org/#/optimism',
     label: 'Optimistic Kovan',
+    logoUrl: optimismLogoUrl,
+  },
+  [SupportedChainId.MAIN_CHINA]: {
+    docs: 'https://pliangroup.gitbook.io/',
+    explorer: 'https://piscan.plian.org/pchain',
+    infoLink: 'https://mainnet.plian.io/pchain',
+    label: 'Mainnet',
+    logoUrl: optimismLogoUrl,
+  },
+  [SupportedChainId.MAIN_CHILD]: {
+    docs: 'https://pliangroup.gitbook.io/',
+    explorer: 'https://piscan.plian.org/child_0',
+    infoLink: 'https://mainnet.plian.io/child_0',
+    label: 'Subchain1',
+    logoUrl: optimismLogoUrl,
+  },
+  [SupportedChainId.TESTNET]: {
+    docs: 'https://pliangroup.gitbook.io/',
+    explorer: 'https://testnet.plian.org/testnet',
+    infoLink: 'https://testnet.plian.io/testnet',
+    label: 'Testnet',
+    logoUrl: optimismLogoUrl,
+  },
+  [SupportedChainId.TEST_CHILD]: {
+    docs: 'https://pliangroup.gitbook.io/',
+    explorer: 'https://testnet.plian.org/child_test',
+    infoLink: 'https://testnet.plian.io/child_test',
+    label: 'Testnet1',
     logoUrl: optimismLogoUrl,
   },
 }

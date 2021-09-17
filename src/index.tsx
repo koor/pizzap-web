@@ -2,18 +2,18 @@ import 'inter-ui'
 import '@reach/dialog/styles.css'
 import 'polyfills'
 import { createWeb3ReactRoot, Web3ReactProvider } from '@web3-react/core'
-import { StrictMode } from 'react';
+import { StrictMode } from 'react'
 import { isMobile } from 'react-device-detect'
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'
 import ReactGA from 'react-ga'
 import { Provider } from 'react-redux'
 import { HashRouter } from 'react-router-dom'
 import { NetworkContextName } from './constants/misc'
 import { LanguageProvider } from './i18n'
-import App from 'pages/App';
+import App from 'pages/App'
 import store from './state'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
-import reportWebVitals from './reportWebVitals';
+import reportWebVitals from './reportWebVitals'
 
 import ThemeProvider, { ThemedGlobalStyle } from './theme'
 import RadialGradientByChainUpdater from './theme/RadialGradientByChainUpdater'
@@ -61,13 +61,12 @@ ReactDOM.render(
           </Web3ReactProvider>
         </LanguageProvider>
       </HashRouter>
-
     </Provider>
   </StrictMode>,
   document.getElementById('root')
-);
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals()

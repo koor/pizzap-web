@@ -265,7 +265,7 @@ export default function Header() {
         <StyledNavLink id={`swap-nav-link`} to={'/market'}>
           <Trans>Market</Trans>
         </StyledNavLink>
-        {chainId && chainId === SupportedChainId.MAINNET && (
+        {chainId && chainId === SupportedChainId.TEST_CHILD && (
           <StyledNavLink id={`vote-nav-link`} to={'/create'}>
             <Trans>Create</Trans>
           </StyledNavLink>
@@ -276,16 +276,16 @@ export default function Header() {
       </HeaderLinks>
 
       <HeaderControls>
-       <NetworkCard />
+        <NetworkCard />
         <HeaderElement>
           <AccountElement active={!!account}>
-              {account ? (
-                <BalanceText style={{ flexShrink: 0, userSelect: 'none' }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                  <Trans>0 ETH</Trans>
-                </BalanceText>
-              ) : null}
-              <Web3Status />
-            </AccountElement>
+            {account ? (
+              <BalanceText style={{ flexShrink: 0, userSelect: 'none' }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
+                <Trans>0 ETH</Trans>
+              </BalanceText>
+            ) : null}
+            <Web3Status />
+          </AccountElement>
           <Menu />
         </HeaderElement>
       </HeaderControls>

@@ -9,7 +9,7 @@ import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 export declare enum FeeAmount {
   LOW = 500,
   MEDIUM = 3000,
-  HIGH = 10000
+  HIGH = 10000,
 }
 
 // returns the checksummed address if the address is valid, otherwise returns false

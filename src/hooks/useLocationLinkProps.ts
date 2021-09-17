@@ -14,7 +14,7 @@ export function useLocationLinkProps(locale: SupportedLocale | null): {
   const location = useLocation()
   const qs = useParsedQueryString()
   const activeLocale = useActiveLocale()
-  
+
   return useMemo(
     () =>
       !locale

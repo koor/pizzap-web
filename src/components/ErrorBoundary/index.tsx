@@ -120,7 +120,7 @@ function getRelevantState(): null | keyof AppState {
   if (!path.startsWith('#/')) {
     return null
   }
-  const pieces = path.substring(2).split(/[\/\\?]/)
+  // const pieces = path.substring(2).split(/[\/\\?]/)
   // switch (pieces[0]) {
   //   case 'swap':
   //     return 'swap'
@@ -129,7 +129,7 @@ function getRelevantState(): null | keyof AppState {
   //     else return 'mintV3'
   //   case 'remove':
   //     if (pieces[1] === 'v2') return 'burn'
-  //     else return 'burnV3'
+  //   else return 'burnV3'
   // }
   return null
 }

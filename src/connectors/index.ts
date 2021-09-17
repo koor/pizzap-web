@@ -28,6 +28,11 @@ const NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+
+  [SupportedChainId.MAIN_CHINA]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.MAIN_CHILD]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.TESTNET]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.TEST_CHILD]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
 }
 
 export const network = new NetworkConnector({

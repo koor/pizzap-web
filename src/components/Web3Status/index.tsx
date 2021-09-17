@@ -222,6 +222,8 @@ function Web3StatusInner() {
 
 export default function Web3Status() {
   const { active, account } = useWeb3React()
+  console.log(active, account)
+
   const contextNetwork = useWeb3React(NetworkContextName)
 
   const { ENSName } = useENSName(account ?? undefined)

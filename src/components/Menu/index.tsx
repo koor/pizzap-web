@@ -171,7 +171,7 @@ const CODE_LINK = 'https://github.com/Uniswap/uniswap-interface'
 
 function LanguageMenuItem({ locale, active, key }: { locale: SupportedLocale; active: boolean; key: string }) {
   const { to, onClick } = useLocationLinkProps(locale)
-  
+
   if (!to) return null
 
   return (
@@ -184,7 +184,7 @@ function LanguageMenuItem({ locale, active, key }: { locale: SupportedLocale; ac
 
 function LanguageMenu({ close }: { close: () => void }) {
   const activeLocale = useActiveLocale()
-  
+
   return (
     <MenuFlyout>
       <ToggleMenuItem onClick={close}>

@@ -17,7 +17,7 @@ import { api as dataApi } from './data/slice'
 // import { routingApi } from './routing/slice'
 
 // const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists']
-const PERSISTED_KEYS: string[] = [ 'user', 'transactions' ]
+const PERSISTED_KEYS: string[] = ['user', 'transactions']
 
 const store = configureStore({
   reducer: {

@@ -4,11 +4,7 @@ import { I18nProvider } from '@lingui/react'
 import { ReactNode } from 'react'
 import { useActiveLocale, useSetLocaleFromUrl } from 'hooks/useActiveLocale'
 import { SupportedLocale } from './constants/locales'
-import {
-  en,
-  zh,
-  PluralCategory,
-} from 'make-plural/plurals'
+import { en, zh, PluralCategory } from 'make-plural/plurals'
 
 type LocalePlural = {
   [key in SupportedLocale]: (n: number | string, ord?: boolean) => PluralCategory

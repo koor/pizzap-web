@@ -46,13 +46,13 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
 
     max-width: 420px;
     ${({ maxHeight }) =>
-    maxHeight &&
-    css`
+      maxHeight &&
+      css`
         max-height: ${maxHeight}vh;
       `}
     ${({ minHeight }) =>
-    minHeight &&
-    css`
+      minHeight &&
+      css`
         min-height: ${minHeight}vh;
       `}
     display: flex;
@@ -63,14 +63,15 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
     `}
     ${({ theme, mobile }) => theme.mediaWidth.upToSmall`
       width:  85vw;
-      ${mobile &&
-    css`
+      ${
+        mobile &&
+        css`
           width: 100vw;
           border-radius: 20px;
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
         `
-    }
+      }
     `}
   }
 `
@@ -92,7 +93,6 @@ export default function Modal({
   initialFocusRef,
   children,
 }: ModalProps) {
-
   const fadeTransition = useTransition(isOpen, null, {
     config: { duration: 200 },
     from: { opacity: 0 },
@@ -127,9 +127,9 @@ export default function Modal({
               <StyledDialogContent
                 {...(isMobile
                   ? {
-                    ...bind(),
-                    style: { transform: y.interpolate((y) => `translateY(${(y as number) > 0 ? y : 0}px)`) },
-                  }
+                      ...bind(),
+                      style: { transform: y.interpolate((y) => `translateY(${(y as number) > 0 ? y : 0}px)`) },
+                    }
                   : {})}
                 aria-label="dialog content"
                 minHeight={minHeight}

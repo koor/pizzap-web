@@ -1,6 +1,5 @@
 import styled from 'styled-components/macro'
 import { darken } from 'polished'
-
 import { RowBetween } from '../Row'
 import { ChevronDown, Check } from 'react-feather'
 import { Button as RebassButton, ButtonProps as ButtonPropsOriginal } from 'rebass/styled-components'
@@ -337,7 +336,6 @@ const ResponsiveCheck = styled(Check)`
 
 export function ButtonRadioChecked({ active = false, children, ...rest }: { active?: boolean } & ButtonProps) {
   const theme = useTheme()
-  
 
   if (!active) {
     return (

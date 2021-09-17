@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react'
 
 import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components/macro'
@@ -7,10 +7,7 @@ import Web3ReactManager from '../components/Web3ReactManager'
 import ErrorBoundary from '../components/ErrorBoundary'
 import Header from '../components/Header'
 
-
-
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
-
 
 import Home from './Home'
 import Market from './Market'
@@ -52,13 +49,11 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 
-
 function TopLevelModals() {
   const open = false /*useModalOpen(ApplicationModal.ADDRESS_CLAIM)*/
   const toggle = false /*useToggleModal(ApplicationModal.ADDRESS_CLAIM)*/
   // return <AddressClaimModal isOpen={open} onDismiss={toggle} />
 }
-
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -87,8 +82,7 @@ function App() {
         onProposalActionSelect={() => alert('onProposalActionSelect')} />
       <button onClick={() => setModalOpen(!modalOpen)}>点我</button> */}
     </ErrorBoundary>
-
-  );
+  )
 }
 
-export default App;
+export default App

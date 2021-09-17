@@ -26,8 +26,8 @@ export default function DarkModeQueryParamReader({ location: { search } }: Route
     } else if (theme.toLowerCase() === 'dark') {
       // dispatch(updateUserDarkMode({ userDarkMode: true }))
     }
-  // }, [dispatch, search])
-}, [search])
+    // }, [dispatch, search])
+  }, [search])
 
   return null
 }
