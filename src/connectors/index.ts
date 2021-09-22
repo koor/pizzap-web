@@ -51,27 +51,27 @@ export const injected = new InjectedConnector({
 
 export const gnosisSafe = new SafeAppConnector()
 
-export const walletconnect = new WalletConnectConnector({
-  supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
-  rpc: NETWORK_URLS,
-  qrcode: true,
-})
+// export const walletconnect = new WalletConnectConnector({
+//   supportedChainIds: ALL_SUPPORTED_CHAIN_IDS,
+//   rpc: NETWORK_URLS,
+//   qrcode: true,
+// })
 
 // mainnet only
-export const fortmatic = new FortmaticConnector({
-  apiKey: FORMATIC_KEY ?? '',
-  chainId: 1,
-})
+// export const fortmatic = new FortmaticConnector({
+//   apiKey: FORMATIC_KEY ?? '',
+//   chainId: 1,
+// })
 
 // mainnet only
-export const portis = new PortisConnector({
-  dAppId: PORTIS_ID ?? '',
-  networks: [1],
-})
+// export const portis = new PortisConnector({
+//   dAppId: PORTIS_ID ?? '',
+//   networks: [1],
+// })
 
 // mainnet only
-export const walletlink = new WalletLinkConnector({
-  url: NETWORK_URLS[SupportedChainId.MAINNET],
-  appName: 'Uniswap',
-  appLogoUrl: UNISWAP_LOGO_URL,
-})
+// export const walletlink = new WalletLinkConnector({
+//   url: NETWORK_URLS[SupportedChainId.MAINNET],
+//   appName: 'Uniswap',
+//   appLogoUrl: UNISWAP_LOGO_URL,
+// })

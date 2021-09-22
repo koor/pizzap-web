@@ -37,7 +37,7 @@ msgstr ""
 
 #: src/components/WalletModal/index.tsx
 msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
-msgstr ""
+msgstr "连接钱包即表示您同意Uniswap实验室的<0>服务条款</0>，并确认您已阅读并理解<1>Uniswap协议免责声明</1>。"
 
 #: src/components/AccountDetails/index.tsx
 msgid "Change"
