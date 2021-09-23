@@ -9,6 +9,9 @@ export const ColumnCenter = styled(Column)`
   width: 100%;
   align-items: center;
 `
+export const BodyColumn = styled.div`
+  padding: 0px 16px;
+`
 
 export const AutoColumn = styled.div<{
   gap?: 'sm' | 'md' | 'lg' | string
