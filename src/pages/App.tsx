@@ -9,6 +9,8 @@ import Header from '../components/Header'
 
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 
+import 'antd/dist/antd.css'
+
 import Home from './Home'
 import Market from './Market'
 import Create from './Create'
@@ -79,7 +81,8 @@ function App() {
       {/* <ProposalActionSelectorModal
         isOpen={modalOpen}
         onDismiss={() => setModalOpen(false)}
-        onProposalActionSelect={() => alert('onProposalActionSelect')} />
+        onProposalActionSelect={() => alert('onProposalActionSelect')}
+      />
       <button onClick={() => setModalOpen(!modalOpen)}>点我</button> */}
     </ErrorBoundary>
   )

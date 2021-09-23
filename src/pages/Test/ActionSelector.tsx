@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react'
 
 import styled from 'styled-components/macro'
 
@@ -10,7 +10,7 @@ import Modal from '../../components/Modal'
 import { RowBetween } from '../../components/Row'
 import { MenuItem, PaddedColumn, Separator } from '../../components/SearchModal/styleds'
 import { ButtonDropdown } from '../../components/Button'
-import useTheme from 'hooks/useTheme';
+import useTheme from 'hooks/useTheme'
 export enum ProposalAction {
   TRANSFER_TOKEN = 'Transfer Token',
   APPROVE_TOKEN = 'Approve Token',
@@ -30,12 +30,9 @@ const ContentWrapper = styled(Column)`
 const ActionSelectorHeader = styled.div`
   font-size: 14px;
   font-weight: 500;
-  color: #FFF;
+  color: #fff;
   color: ${({ theme }) => theme.text2};
 `
-
-
-
 
 const ActionDropdown = styled(ButtonDropdown)`
   padding: 0px;
@@ -61,7 +58,6 @@ const ProposalActionSelectorFlex = styled.div`
   background-color: ${({ theme }) => theme.bg1};
 `
 
-
 const ProposalActionSelectorContainer = styled.div`
   flex: 1;
   padding: 1rem;
@@ -80,8 +76,8 @@ export const ProposalActionSelector = ({
   proposalAction: ProposalAction
 }) => {
   const theme = useTheme()
-  console.log(theme);
-  
+  console.log(theme)
+
   return (
     <ProposalActionSelectorFlex>
       <ProposalActionSelectorContainer className={className}>
@@ -135,5 +131,5 @@ export function ProposalActionSelectorModal({
         </MenuItem>
       </ContentWrapper>
     </Modal>
-  );
+  )
 }
