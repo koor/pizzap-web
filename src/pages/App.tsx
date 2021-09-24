@@ -15,6 +15,7 @@ import Home from './Home'
 import Market from './Market'
 import Create from './Create'
 import Forum from './Forum'
+import Detail from './Market/detail'
 
 import { ProposalActionSelectorModal } from 'pages/Test/ActionSelector'
 
@@ -73,6 +74,7 @@ function App() {
               <Route exact strict path="/market" component={Market} />
               <Route exact strict path="/create" component={Create} />
               <Route exact strict path="/forum" component={Forum} />
+              <Route exact strict path="/detail" component={Detail} />
             </Switch>
             <Marginer />
           </BodyWrapper>
