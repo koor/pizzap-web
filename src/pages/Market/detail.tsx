@@ -3,6 +3,8 @@ import styled from 'styled-components/macro'
 import { Switch, Select, Tabs, Table } from 'antd'
 import { ButtonLight, ButtonGray } from 'components/Button'
 
+import avatar from '../../assets/img/avatar.png'
+
 export default function Market() {
   const Wrapper = styled.div`
     width: 100%;
@@ -20,6 +22,11 @@ export default function Market() {
       .product-detail {
         flex: 1;
         color: #1b1b1b;
+
+        .avatar {
+          width: 22px;
+          height: 22px;
+        }
       }
     }
 
@@ -45,7 +52,10 @@ export default function Market() {
           </p>
           <p>稀有数字音频：已验证</p>
           <p>Audio Name</p>
-          <p>创建者：harvey</p>
+          <p>
+            创建者：
+            <img src={avatar} className="avatar" alt="" /> harvey
+          </p>
           <p>拥有者：I-AHN_RECORDS</p>
           <ButtonLight>立即购买</ButtonLight>
         </div>
@@ -77,6 +87,7 @@ export default function Market() {
           </Table>
         </Tabs.TabPane>
       </Tabs>
+      <div></div>
     </Wrapper>
   )
 }
