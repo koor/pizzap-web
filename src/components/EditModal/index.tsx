@@ -1,6 +1,6 @@
 import { t, Trans } from '@lingui/macro'
 import { ReactNode, useCallback, useState, useContext } from 'react'
-import { ButtonPrimary, ButtonLight } from 'components/Button'
+import { ButtonPrimary, ButtonLight, ButtonError } from 'components/Button'
 import Modal from 'components/Modal'
 import styled, { ThemeContext } from 'styled-components/macro'
 // import { Label, Input as InputComponent } from '@rebass/forms'
@@ -197,7 +197,7 @@ export function VailderInputPanel({
               autoCorrect="off"
               autoCapitalize="off"
               spellCheck="false"
-              placeholder={placeholder ?? t`Wallet Address or ENS name`}
+              placeholder={placeholder}
               error={error}
               pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"
               onChange={handleInput}
@@ -233,10 +233,10 @@ export default function EditModal() {
         </HeaderRow>
         <ContentWrapper>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="start">
-            <VailderInputPanel label={'Name'} value={userName} onChange={setUserName} />
+            <VailderInputPanel placeholder={t`User Email`} label={'Name'} value={userName} onChange={setUserName} />
           </AutoColumn>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
-            <VailderInputPanel require label={'Email'} value={email} onChange={setEmail} />
+            <VailderInputPanel require placeholder={t`User Name`} label={'Email'} value={email} onChange={setEmail} />
             {!error && (
               <TYPE.error error={true}>
                 <Trans>Email Address has no available claim</Trans>
@@ -246,7 +246,7 @@ export default function EditModal() {
         </ContentWrapper>
         <FooterWrapper>
           <WalletAttion account={account}>
-            <ButtonPrimary>
+            <ButtonPrimary disabled={!userName || !email || !error} onClick={() => alert('submit')}>
               <Trans>Edit information</Trans>
             </ButtonPrimary>
           </WalletAttion>
