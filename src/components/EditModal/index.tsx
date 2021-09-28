@@ -233,10 +233,10 @@ export default function EditModal() {
         </HeaderRow>
         <ContentWrapper>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="start">
-            <VailderInputPanel placeholder={t`User Email`} label={'Name'} value={userName} onChange={setUserName} />
+            <VailderInputPanel placeholder={t`User Name`} label={'Name'} value={userName} onChange={setUserName} />
           </AutoColumn>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
-            <VailderInputPanel require placeholder={t`User Name`} label={'Email'} value={email} onChange={setEmail} />
+            <VailderInputPanel require placeholder={t`User Email`} label={'Email'} value={email} onChange={setEmail} />
             {!error && (
               <TYPE.error error={true}>
                 <Trans>Email Address has no available claim</Trans>
