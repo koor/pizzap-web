@@ -8,7 +8,8 @@ import { Text } from 'rebass'
 import { useShowClaimPopup, useToggleSelfClaimModal } from 'state/application/hooks'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled from 'styled-components/macro'
-import Logo from '../../assets/svg/logo.svg'
+// import Logo from '../../assets/svg/logo.svg'
+import LogoPink from '../../assets/svg/logo_pink.svg'
 import LogoDark from '../../assets/svg/logo_white.svg'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { ExternalLink, TYPE } from '../../theme'
@@ -33,13 +34,13 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   position: relative;
   /* Background slide effect on scroll. */
   background-image: ${({ theme }) => `linear-gradient(to bottom, transparent 50%, ${theme.bg0} 50% )}}`};
-  /* background-position: ${({ showBackground }) => (showBackground ? '0 -100%' : '0 0')}; */
-  background-position: 0 -100%;
+  background-position: ${({ showBackground }) => (showBackground ? '0 -100%' : '0 0')};
   background-size: 100% 200%;
-  /* box-shadow: 0px 0px 0px 1px ${({ theme, showBackground }) => (showBackground ? theme.bg2 : 'transparent;')}; */
+  box-shadow: 0px 0px 0px 1px ${({ theme, showBackground }) => (showBackground ? theme.bg2 : 'transparent;')};
   transition: background-position 0.1s, box-shadow 0.1s;
   background-blend-mode: hard-light;
-
+  border-bottom-left-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
   ${({ theme }) => theme.mediaWidth.upToLarge`
     grid-template-columns: 48px 1fr 1fr;
   `};
@@ -256,7 +257,7 @@ export default function Header() {
       </Modal>
       <Title href=".">
         <UniIcon>
-          <img width={'24px'} src={darkMode ? LogoDark : Logo} alt="logo" />
+          <img width={'24px'} src={darkMode ? LogoDark : LogoPink} alt="logo" />
         </UniIcon>
       </Title>
       <HeaderLinks>

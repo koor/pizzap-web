@@ -5,14 +5,14 @@ import styled from 'styled-components/macro'
 import { useActiveWeb3React } from '../../hooks/web3'
 import Jazzicon from '@metamask/jazzicon'
 
-const StyledIdenticonContainer = styled.div`
-  height: 1rem;
-  width: 1rem;
-  border-radius: 1.125rem;
+const StyledIdenticonContainer = styled.div<{ size: number }>`
+  height: ${({ size }) => size / 16}rem;
+  width: ${({ size }) => size / 16}rem;
+  border-radius: 50%;
   background-color: ${({ theme }) => theme.bg4};
 `
 
-export default function Identicon() {
+export default function Identicon({ size = 16 }: { size?: number }) {
   const ref = useRef<HTMLDivElement>()
 
   const { account } = useActiveWeb3React()
@@ -20,10 +20,10 @@ export default function Identicon() {
   useEffect(() => {
     if (account && ref.current) {
       ref.current.innerHTML = ''
-      ref.current.appendChild(Jazzicon(16, parseInt(account.slice(2, 10), 16)))
+      ref.current.appendChild(Jazzicon(size, parseInt(account.slice(2, 10), 16)))
     }
   }, [account])
 
   // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
-  return <StyledIdenticonContainer ref={ref as any} />
+  return <StyledIdenticonContainer size={size} ref={ref as any} />
 }

@@ -171,17 +171,8 @@ function Web3StatusInner() {
 
   const { ENSName } = useENSName(account ?? undefined)
 
-  const allTransactions: any = null
-
-  // const sortedRecentTransactions = useMemo(() => {
-  //   const txs = Object.values(allTransactions)
-  //   return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
-  // }, [allTransactions])
-
-  // const pending = sortedRecentTransactions.filter((tx) => !tx.receipt).map((tx) => tx.hash)
   const pending = []
   const hasPendingTransactions = !!pending.length
-  // const hasSocks = useHasSocks()
   const hasSocks = false
   const toggleWalletModal = useWalletModalToggle()
 

@@ -118,6 +118,21 @@ const MenuItem = styled(ExternalLink)`
   }
 `
 
+const InpageMenuItem = styled(Link)`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 0.5rem;
+  justify-content: space-between;
+  color: ${({ theme }) => theme.text2};
+  text-decoration: none;
+  :hover {
+    color: ${({ theme }) => theme.text1};
+    cursor: pointer;
+  }
+`
+
 const InternalMenuItem = styled(Link)`
   flex: 1;
   padding: 0.5rem 0.5rem;
@@ -231,6 +246,12 @@ export default function Menu() {
             default:
               return (
                 <MenuFlyout>
+                  <InpageMenuItem to="/personal">
+                    <div>
+                      <Trans>Personal</Trans>
+                    </div>
+                    <Info opacity={0.6} size={16} />
+                  </InpageMenuItem>
                   <MenuItem href="https://uniswap.org/">
                     <div>
                       <Trans>About</Trans>

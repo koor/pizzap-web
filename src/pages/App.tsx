@@ -13,8 +13,7 @@ import Home from './Home'
 import Market from './Market'
 import Create from './Create'
 import Forum from './Forum'
-
-import { ProposalActionSelectorModal } from 'pages/Test/ActionSelector'
+import Personal from './Personal'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -26,8 +25,7 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* padding: 78px 16px 0px 16px; */
-  padding: 78px 0px 16px;
+  padding: 78px 87px;
   align-items: center;
   flex: 1;
   z-index: 1;
@@ -44,6 +42,10 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   z-index: 2;
+  padding: 0 87px;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: unset;
+  `};
 `
 
 const Marginer = styled.div`
@@ -72,16 +74,12 @@ function App() {
               <Route exact strict path="/market" component={Market} />
               <Route exact strict path="/create" component={Create} />
               <Route exact strict path="/forum" component={Forum} />
+              <Route exact strict path="/personal" component={Personal} />
             </Switch>
             <Marginer />
           </BodyWrapper>
         </AppWrapper>
       </Web3ReactManager>
-      {/* <ProposalActionSelectorModal
-        isOpen={modalOpen}
-        onDismiss={() => setModalOpen(false)}
-        onProposalActionSelect={() => alert('onProposalActionSelect')} />
-      <button onClick={() => setModalOpen(!modalOpen)}>点我</button> */}
     </ErrorBoundary>
   )
 }

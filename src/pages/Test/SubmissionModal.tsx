@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ThemeContext } from 'styled-components/macro'
 import { Text } from 'rebass'
 import { ExternalLink, TYPE } from 'theme'
