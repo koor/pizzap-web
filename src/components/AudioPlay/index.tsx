@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import styled from 'styled-components/macro'
-import { Slider } from '@rebass/forms'
 import { Play, Pause } from 'react-feather'
 
 interface Props {
@@ -20,14 +19,15 @@ const AudioWapper = styled.div`
 const SliderWapper = styled.div`
   width: 100%;
   display: flex;
-
+  align-items: center;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     flex-direction: column;
-  `}
+  `};
 `
 
-const SliderInput = styled(Slider)`
+const SliderInput = styled.input`
   &[type='range'] {
+    flex: 1;
     -webkit-appearance: none; /*去除默认样式*/
     background-color: #ebeff4;
     -webkit-appearance: none;
@@ -35,12 +35,14 @@ const SliderInput = styled(Slider)`
     padding: 0;
     border: none;
     &::-webkit-slider-thumb {
+      cursor: pointer;
       -webkit-appearance: none; /*去除默认样式*/
       cursor: default;
       top: 0;
       height: 10px;
       width: 10px;
       background: ${({ theme }) => theme.text1};
+      cursor: pointer;
       border-radius: 15px;
     }
   }
@@ -175,7 +177,8 @@ export default function AudioPlay({ src }: Props) {
       {isPlay ? <PauseIcon size={20} onClick={pauseAudio} /> : <PlayIcon size={20} onClick={playAudio} />}
 
       <SliderWapper>
-        <SliderInput sx={{ bg: 'primary' }} step="0.01" max={allTime} value={currentTime} onChange={changeTime} />
+        <SliderInput type="range" step="0.01" max={allTime} value={currentTime} onChange={changeTime} />
+        {/* <SliderInput sx={{ bg: 'primary' }} /> */}
         <SliderTime>
           <Time>{formatSecond(currentTime)}</Time>
           <Time>{formatSecond(allTime)}</Time>

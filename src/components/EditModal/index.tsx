@@ -3,7 +3,6 @@ import { ReactNode, useCallback, useState, useContext } from 'react'
 import { ButtonPrimary, ButtonLight, ButtonError } from 'components/Button'
 import Modal from 'components/Modal'
 import styled, { ThemeContext } from 'styled-components/macro'
-// import { Label, Input as InputComponent } from '@rebass/forms'
 import { useWalletModalToggle } from 'state/application/hooks'
 import { useActiveWeb3React } from 'hooks/web3'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
@@ -137,12 +136,13 @@ export function WalletAttion({ account, children }: { account: string | null | u
   const toggleWalletModal = useWalletModalToggle()
   return (
     <>
-      {!account && (
-        <ButtonLight onClick={toggleWalletModal}>
+      {!account ? (
+        <ButtonLight onClick={toggleWalletModal} padding="8px 16px" $borderRadius="12px">
           <Trans>Connect Wallet</Trans>
         </ButtonLight>
+      ) : (
+        <>{children}</>
       )}
-      {children}
     </>
   )
 }
@@ -247,7 +247,7 @@ export default function EditModal() {
         <FooterWrapper>
           <WalletAttion account={account}>
             <ButtonPrimary disabled={!userName || !email || !error} onClick={() => alert('submit')}>
-              <Trans>Edit information</Trans>
+              <Trans>Submit</Trans>
             </ButtonPrimary>
           </WalletAttion>
         </FooterWrapper>
@@ -257,7 +257,7 @@ export default function EditModal() {
   return (
     <>
       <WalletAttion account={account}>
-        <ButtonPrimary onClick={editModalOpen} padding="8px 16px" width="100%" $borderRadius="12px" mt="0.5rem">
+        <ButtonPrimary onClick={editModalOpen} padding="8px 16px" width="100%" $borderRadius="12px" mt="0.6rem">
           <Trans>Edit information</Trans>
         </ButtonPrimary>
       </WalletAttion>

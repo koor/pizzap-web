@@ -22,7 +22,7 @@ export default function Identicon({ size = 16 }: { size?: number }) {
       ref.current.innerHTML = ''
       ref.current.appendChild(Jazzicon(size, parseInt(account.slice(2, 10), 16)))
     }
-  }, [account])
+  }, [account, size])
 
   // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
   return <StyledIdenticonContainer size={size} ref={ref as any} />

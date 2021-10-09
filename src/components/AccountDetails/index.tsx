@@ -1,13 +1,10 @@
-import { useCallback, useContext } from 'react'
+import { useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components/macro'
 import { SUPPORTED_WALLETS } from '../../constants/wallet'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { clearAllTransactions } from '../../state/transactions/actions'
 import { shortenAddress } from '../../utils'
 import { ExplorerDataType, getExplorerLink } from '../../utils/getExplorerLink'
-import { AutoRow } from '../Row'
 import Copy from './Copy'
-import Transaction from './Transaction'
 
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 // import { injected, walletconnect, walletlink, fortmatic, portis } from '../../connectors'
@@ -93,22 +90,6 @@ const YourAccount = styled.div`
   }
 `
 
-const LowerSection = styled.div`
-  ${({ theme }) => theme.flexColumnNoWrap}
-  padding: 1.5rem;
-  flex-grow: 1;
-  overflow: auto;
-  background-color: ${({ theme }) => theme.bg2};
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-
-  h5 {
-    margin: 0;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text3};
-  }
-`
-
 const AccountControl = styled.div`
   display: flex;
   justify-content: space-between;
@@ -180,10 +161,6 @@ const IconWrapper = styled.div<{ size?: number }>`
   `};
 `
 
-const TransactionListWrapper = styled.div`
-  ${({ theme }) => theme.flexColumnNoWrap};
-`
-
 const WalletAction = styled(ButtonSecondary)`
   width: fit-content;
   font-weight: 400;
@@ -195,20 +172,6 @@ const WalletAction = styled(ButtonSecondary)`
     text-decoration: underline;
   }
 `
-
-const MainWalletAction = styled(WalletAction)`
-  color: ${({ theme }) => theme.primary1};
-`
-
-function renderTransactions(transactions: string[]) {
-  return (
-    <TransactionListWrapper>
-      {transactions.map((hash, i) => {
-        return <Transaction key={i} hash={hash} />
-      })}
-    </TransactionListWrapper>
-  )
-}
 
 interface AccountDetailsProps {
   toggleWalletModal: () => void
@@ -289,11 +252,6 @@ export default function AccountDetails({
     // }
     return null
   }
-
-  const clearAllTransactionsCallback = useCallback(() => {
-    if (chainId) dispatch(clearAllTransactions({ chainId }))
-  }, [dispatch, chainId])
-
   return (
     <>
       <UpperSection>
@@ -407,26 +365,6 @@ export default function AccountDetails({
           </YourAccount>
         </AccountSection>
       </UpperSection>
-      {!!pendingTransactions.length || !!confirmedTransactions.length ? (
-        <LowerSection>
-          <AutoRow mb={'1rem'} style={{ justifyContent: 'space-between' }}>
-            <TYPE.body>
-              <Trans>Recent Transactions</Trans>
-            </TYPE.body>
-            <LinkStyledButton onClick={clearAllTransactionsCallback}>
-              <Trans>(clear all)</Trans>
-            </LinkStyledButton>
-          </AutoRow>
-          {renderTransactions(pendingTransactions)}
-          {renderTransactions(confirmedTransactions)}
-        </LowerSection>
-      ) : (
-        <LowerSection>
-          <TYPE.body color={theme.text1}>
-            <Trans>Your transactions will appear here...</Trans>
-          </TYPE.body>
-        </LowerSection>
-      )}
     </>
   )
 }

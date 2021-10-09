@@ -1,7 +1,7 @@
-import { useState } from 'react'
-
+import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 
 import Web3ReactManager from '../components/Web3ReactManager'
 import ErrorBoundary from '../components/ErrorBoundary'
@@ -14,6 +14,7 @@ import Market from './Market'
 import Create from './Create'
 import Forum from './Forum'
 import Personal from './Personal'
+import { RedirectPathToHomeOnly } from './Home/redirects'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -52,17 +53,18 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 
-function TopLevelModals() {
-  const open = false /*useModalOpen(ApplicationModal.ADDRESS_CLAIM)*/
-  const toggle = false /*useToggleModal(ApplicationModal.ADDRESS_CLAIM)*/
-  // return <AddressClaimModal isOpen={open} onDismiss={toggle} />
-}
+// function TopLevelModals() {
+//   const open = useModalOpen(ApplicationModal.ADDRESS_CLAIM)
+//   const toggle = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
+//   return <AddressClaimModal isOpen={open} onDismiss={toggle} />
+// }
 
 function App() {
-  const [modalOpen, setModalOpen] = useState(false)
   return (
     <ErrorBoundary>
+      {/* <Route component={GoogleAnalyticsReporter} /> */}
       <Route component={DarkModeQueryParamReader} />
+      {/* <Route component={ApeModeQueryParamReader} /> */}
       <Web3ReactManager>
         <AppWrapper>
           <HeaderWrapper>
@@ -75,6 +77,8 @@ function App() {
               <Route exact strict path="/create" component={Create} />
               <Route exact strict path="/forum" component={Forum} />
               <Route exact strict path="/personal" component={Personal} />
+
+              <Route component={RedirectPathToHomeOnly} />
             </Switch>
             <Marginer />
           </BodyWrapper>

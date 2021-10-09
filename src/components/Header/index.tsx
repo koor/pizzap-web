@@ -1,18 +1,16 @@
 import { Trans } from '@lingui/macro'
 import useScrollPosition from '@react-hook/window-scroll'
-import { CHAIN_INFO, SupportedChainId } from 'constants/chains'
+import { SupportedChainId } from 'constants/chains'
 import { darken } from 'polished'
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Text } from 'rebass'
-import { useShowClaimPopup, useToggleSelfClaimModal } from 'state/application/hooks'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled from 'styled-components/macro'
-// import Logo from '../../assets/svg/logo.svg'
 import LogoPink from '../../assets/svg/logo_pink.svg'
 import LogoDark from '../../assets/svg/logo_white.svg'
 import { useActiveWeb3React } from '../../hooks/web3'
-import { ExternalLink, TYPE } from '../../theme'
+import { ExternalLink } from '../../theme'
 import Menu from '../Menu'
 import Modal from '../Modal'
 import Row from '../Row'
@@ -237,18 +235,9 @@ export default function Header() {
   const { account, chainId } = useActiveWeb3React()
   const [darkMode] = useDarkModeManager()
 
-  const toggleClaimModal = useToggleSelfClaimModal()
-
-  // const availableClaim: boolean = useUserHasAvailableClaim(account)
-
-  // const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
-
   const [showUniBalanceModal, setShowUniBalanceModal] = useState(false)
-  // const showClaimPopup = useShowClaimPopup()
-
   const scrollY = useScrollPosition()
 
-  const { infoLink } = CHAIN_INFO[chainId ? chainId : SupportedChainId.MAINNET]
   return (
     <HeaderFrame showBackground={scrollY > 45}>
       {/* <ClaimModal /> */}
@@ -267,7 +256,7 @@ export default function Header() {
         <StyledNavLink id={`swap-nav-link`} to={'/market'}>
           <Trans>Market</Trans>
         </StyledNavLink>
-        {chainId && chainId === SupportedChainId.TEST_CHILD && (
+        {chainId && chainId === SupportedChainId.MAINNET && (
           <StyledNavLink id={`vote-nav-link`} to={'/create'}>
             <Trans>Create</Trans>
           </StyledNavLink>
@@ -275,6 +264,10 @@ export default function Header() {
         <StyledNavLink id={`swap-nav-link`} to={'/forum'}>
           <Trans>Forum</Trans>
         </StyledNavLink>
+        {/* <StyledExternalLink id={`charts-nav-link`} href={infoLink}>
+          <Trans>Charts</Trans>
+          <sup>↗</sup>
+        </StyledExternalLink> */}
       </HeaderLinks>
 
       <HeaderControls>

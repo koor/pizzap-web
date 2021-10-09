@@ -1,6 +1,5 @@
-import { Children, Component, ReactNode } from 'react'
-import styled, { css } from 'styled-components/macro'
-import { animated, useTransition, useSpring } from 'react-spring'
+import { Component, ReactNode } from 'react'
+import styled from 'styled-components/macro'
 import {
   Tabs,
   TabList as TabListComponent,
@@ -8,7 +7,7 @@ import {
   TabPanels as TabPanelsComponent,
   TabPanel as TabPanelComponent,
 } from '@reach/tabs'
-import { useGesture } from 'react-use-gesture'
+import '@reach/tabs/styles.css'
 
 const StyledTabsOverlay = styled(Tabs)`
   &[data-reach-tabs] {
@@ -69,14 +68,6 @@ export default function Modal({
   //   orientation,
   children,
 }: TabsProps) {
-  const [{ y }, set] = useSpring(() => ({ y: 0, config: { mass: 1, tension: 210, friction: 20 } }))
-  const bind = useGesture({
-    onDrag: (state) => {
-      set({
-        y: state.down ? state.movement[1] : 0,
-      })
-    },
-  })
   return (
     <StyledTabsOverlay onChange={onChange} index={index}>
       {children}

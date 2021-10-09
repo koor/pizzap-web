@@ -1,6 +1,7 @@
 import { Trans } from '@lingui/macro'
-import { useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components/macro'
+import { MEDIA_WIDTHS } from 'theme'
 import { AutoColumn } from 'components/Column'
 import { useActiveWeb3React } from 'hooks/web3'
 import { injected } from 'connectors'
@@ -9,9 +10,13 @@ import { shortenAddress } from 'utils'
 import Copy from 'components/AccountDetails/Copy'
 import EditModal from 'components/EditModal'
 import Table from 'components/Table'
-
 import Tabs, { Tab, TabList, TabPanels, TabPanel } from 'components/Tabs'
-import '@reach/tabs/styles.css'
+import { ProposalAction, ProposalActionSelector, ProposalActionSelectorModal } from './ActionSelector'
+
+import FormatTime from 'utils/friendlyFormatTime'
+import useWindowSize from 'hooks/useWindowSize'
+
+import { Label, Checkbox } from '@rebass/forms'
 
 const PersonalWapper = styled(AutoColumn)`
   width: 100%;
@@ -59,36 +64,152 @@ const IconWrapper = styled.div<{ size?: number }>`
 
 const ContentWrapper = styled.div`
   width: 100%;
+  overflow: hidden;
   margin-top: 55px;
 `
-
+const FilterWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+const CheckboxWrapper = styled.div`
+  display: flex;
+  & > label {
+    width: unset;
+    &:last-child {
+      margin-left: 30px;
+    }
+  }
+`
+const CheckboxOption = styled(Label)`
+  & > div > svg {
+    color: ${({ theme }) => theme.primary1};
+  }
+`
 export default function Personal() {
   const { account, connector } = useActiveWeb3React()
-  const [tabIndex, setTabIndex] = useState(1)
-  const [array, setArray] = useState<any>(Array.from({ length: 10 }))
-  const [hasMore, setHasMore] = useState(true)
+  const { width } = useWindowSize()
 
+  // const [tabIndex, setTabIndex] = useState(1)
+  // const [array, setArray] = useState<any>(Array.from({ length: 10 }))
+  // const [hasMore, setHasMore] = useState(true)
+
+  const [checkeds, setCheckeds] = useState({
+    audio: false,
+    source: false,
+  })
+  const [modalOpen, setModalOpen] = useState(false)
+  const [proposalAction, setProposalAction] = useState(ProposalAction.TRANSFER_TOKEN)
+
+  const changeChecked = useCallback(
+    (item: { audio?: boolean; source?: boolean }) => {
+      setCheckeds({ ...checkeds, ...item })
+    },
+    [checkeds]
+  )
+
+  const handleActionSelectorClick = useCallback(() => {
+    setModalOpen(true)
+  }, [setModalOpen])
+
+  const handleActionChange = useCallback(
+    (proposalAction: ProposalAction) => {
+      setProposalAction(proposalAction)
+    },
+    [setProposalAction]
+  )
+
+  const handleDismissActionSelector = useCallback(() => {
+    setModalOpen(false)
+  }, [setModalOpen])
+  const columns = useMemo(
+    () => [
+      {
+        Header: 'Event',
+        accessor: 'event',
+        collapse: true,
+      },
+      {
+        Header: 'Project',
+        accessor: 'project',
+      },
+      {
+        Header: 'Price',
+        accessor: 'price',
+        collapse: true,
+        align: 'right',
+      },
+      {
+        Header: 'Quantity',
+        accessor: 'quantity',
+        collapse: true,
+        align: 'right',
+      },
+      {
+        Header: 'From',
+        accessor: 'from',
+      },
+      {
+        Header: 'To',
+        accessor: 'to',
+      },
+      {
+        Header: 'Time',
+        accessor: 'time',
+        Cell: ({ value }: { value: any }) => {
+          return FormatTime(value)
+        },
+        align: 'right',
+      },
+    ],
+    []
+  )
+  const data = [
+    { event: 'aaaaa', project: 'a111111', price: '12', quantity: 1, from: 'your', to: 'your', time: 1632795725070 },
+    { event: 'bbbbb', project: 'b222222', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632795737068 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632800044000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632800440581 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1624851244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1593315244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+    { event: 'bbbbb', project: 'b333333', price: '14', quantity: 1, from: 'your', to: 'your', time: 1632195244000 },
+  ]
   function getStatusIcon() {
     if (connector === injected) {
       return (
-        <IconWrapper size={90}>
-          <Identicon size={90} />
+        <IconWrapper size={width <= MEDIA_WIDTHS.upToSmall ? 60 : 90}>
+          <Identicon size={width <= MEDIA_WIDTHS.upToSmall ? 60 : 90} />
         </IconWrapper>
       )
     }
     return null
   }
-  const fetchMoreData = () => {
-    if (array.length >= 100) {
-      setHasMore(false)
-      return
-    }
-    // a fake async api call like which sends
-    // 20 more records in .5 secs
-    setTimeout(() => {
-      setArray(array.concat(Array.from({ length: 20 })))
-    }, 500)
-  }
+  // const fetchMoreData = () => {
+  //   if (array.length >= 100) {
+  //     setHasMore(false)
+  //     return
+  //   }
+  //   // a fake async api call like which sends
+  //   // 20 more records in .5 secs
+  //   setTimeout(() => {
+  //     setArray(array.concat(Array.from({ length: 20 })))
+  //   }, 500)
+  // }
   return (
     <PersonalWapper justify="start">
       <HeaderWapper>
@@ -125,14 +246,34 @@ export default function Personal() {
             </Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>2222</TabPanel>
+            <TabPanel>
+              <FilterWrapper>
+                <CheckboxWrapper>
+                  <CheckboxOption>
+                    <Checkbox checked={checkeds.audio} onChange={() => changeChecked({ audio: !checkeds.audio })} />
+                    Audio
+                  </CheckboxOption>
+                  <CheckboxOption>
+                    <Checkbox checked={checkeds.source} onChange={() => changeChecked({ source: !checkeds.source })} />
+                    Sound source
+                  </CheckboxOption>
+                </CheckboxWrapper>
+
+                <ProposalActionSelector onClick={handleActionSelectorClick} proposalAction={proposalAction} />
+              </FilterWrapper>
+            </TabPanel>
             <TabPanel>
               {/* <Infinite array={array} fetchMore={fetchMoreData} loader={<p>Loading...</p>} hasMore={hasMore} /> */}
-              <Table />
+              <Table columns={columns} data={data} />
             </TabPanel>
           </TabPanels>
         </Tabs>
       </ContentWrapper>
+      <ProposalActionSelectorModal
+        isOpen={modalOpen}
+        onDismiss={handleDismissActionSelector}
+        onProposalActionSelect={(proposalAction: ProposalAction) => handleActionChange(proposalAction)}
+      />
     </PersonalWapper>
   )
 }
