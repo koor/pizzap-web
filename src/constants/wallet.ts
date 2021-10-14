@@ -4,7 +4,7 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 // import FORTMATIC_ICON_URL from '../assets/images/fortmaticIcon.png'
 import METAMASK_ICON_URL from '../assets/images/metamask.png'
 // import PORTIS_ICON_URL from '../assets/images/portisIcon.png'
-import WALLETCONNECT_ICON_URL from '../assets/images/walletConnectIcon.svg'
+// import WALLETCONNECT_ICON_URL from '../assets/images/walletConnectIcon.svg'
 // import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
 import { injected } from '../connectors'
 

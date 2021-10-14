@@ -47,6 +47,7 @@ function colors(darkMode: boolean): Colors {
     text3: darkMode ? '#8F96AC' : '#6E727D',
     text4: darkMode ? '#B2B9D2' : '#C3C5CB',
     text5: darkMode ? '#2C2F36' : '#EDEEF2',
+    text6: darkMode ? '#FC814C' : '#FC814C',
 
     // backgrounds / greys
     bg0: darkMode ? '#191B1F' : '#FFF',
@@ -56,6 +57,8 @@ function colors(darkMode: boolean): Colors {
     bg4: darkMode ? '#565A69' : '#888D9B',
     bg5: darkMode ? '#6C7284' : '#888D9B',
     bg6: darkMode ? '#1A2028' : '#6C7284',
+    // new
+    bg7: darkMode ? '#392C2F' : '#392C2F',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
@@ -68,8 +71,17 @@ function colors(darkMode: boolean): Colors {
     primary4: darkMode ? '#376bad70' : '#F6DDE8',
     primary5: darkMode ? '#153d6f70' : '#FDEAF1',
 
+    primary6: darkMode ? 'rgba(252, 129, 76, 0.3)' : 'rgba(252, 129, 76, 0.3)',
+    primary7: darkMode ? 'rgba(252, 129, 76, 0.65)' : '',
+    primary8: darkMode
+      ? 'linear-gradient(180deg, #CB83FE 0%, #FD6625 100%)'
+      : 'linear-gradient(180deg, #CB83FE 0%, #FD6625 100%)',
+    primary9: darkMode
+      ? 'linear-gradient(180deg, #9739FE 0%, #F65611 100%)'
+      : 'linear-gradient(180deg, #9739FE 0%, #F65611 100%)',
     // color text
     primaryText1: darkMode ? '#5090ea' : '#D50066',
+    primaryText2: darkMode ? white : white,
 
     // secondary colors
     secondary1: darkMode ? '#2172E5' : '#E8006F',
@@ -93,6 +105,11 @@ function colors(darkMode: boolean): Colors {
     // dont wanna forget these blue yet
     blue4: darkMode ? '#153d6f70' : '#C4D9F8',
     // blue5: darkMode ? '#153d6f70' : '#EBF4FF',
+
+    // border
+    border1: darkMode
+      ? 'linear-gradient( 70deg,rgba(247,19,19,1),rgba(221,18,251,1),rgba(255,125,16,1),rgba(200,144,255,1) ) 1 1'
+      : 'linear-gradient( 70deg,rgba(247,19,19,1),rgba(221,18,251,1),rgba(255,125,16,1),rgba(200,144,255,1) ) 1 1',
   }
 }
 

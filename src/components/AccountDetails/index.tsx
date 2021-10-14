@@ -16,7 +16,8 @@ import { injected } from '../../connectors'
 import Identicon from '../Identicon'
 import { ButtonSecondary } from '../Button'
 import { ExternalLink as LinkIcon } from 'react-feather'
-import { ExternalLink, LinkStyledButton, TYPE } from '../../theme'
+// import { ExternalLink, LinkStyledButton, TYPE } from '../../theme'
+import { ExternalLink } from '../../theme'
 import { Trans } from '@lingui/macro'
 import { useAppDispatch } from 'state/hooks'
 
@@ -175,22 +176,22 @@ const WalletAction = styled(ButtonSecondary)`
 
 interface AccountDetailsProps {
   toggleWalletModal: () => void
-  pendingTransactions: string[]
-  confirmedTransactions: string[]
+  // pendingTransactions: string[]
+  // confirmedTransactions: string[]
   ENSName?: string
   openOptions: () => void
 }
 
 export default function AccountDetails({
   toggleWalletModal,
-  pendingTransactions,
-  confirmedTransactions,
+  // pendingTransactions,
+  // confirmedTransactions,
   ENSName,
   openOptions,
 }: AccountDetailsProps) {
   const { chainId, account, connector } = useActiveWeb3React()
-  const theme = useContext(ThemeContext)
-  const dispatch = useAppDispatch()
+  // const theme = useContext(ThemeContext)
+  // const dispatch = useAppDispatch()
 
   function formatConnectorName() {
     const { ethereum } = window

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 347 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Explore Collection P</title>
+    <defs>
+        <linearGradient x1="-2.73849937%" y1="49.3367652%" x2="107.014955%" y2="48.0836411%" id="linearGradient-1">
+            <stop stop-color="#F71313" offset="0%"></stop>
+            <stop stop-color="#DD12FB" offset="46.9411463%"></stop>
+            <stop stop-color="#FF7D10" offset="86.7486273%"></stop>
+            <stop stop-color="#C890FF" offset="99.9813907%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
+        font-family="AvenirNext-Bold, Avenir Next" font-size="24" font-weight="bold" line-spacing="45">
+        <g id="pizzap-首页" transform="translate(-560.000000, -912.000000)" fill="url(#linearGradient-1)"
+            fill-rule="nonzero">
+            <text id="Explore-Collection-P">
+                <tspan x="558.564" y="933">Explore Collection Production </tspan>
+            </text>
+        </g>
+    </g>
+</svg>

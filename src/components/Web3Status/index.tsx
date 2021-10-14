@@ -1,13 +1,13 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken } from 'polished'
-import { useMemo } from 'react'
+// import { useMemo } from 'react'
 import { Activity } from 'react-feather'
 import { t, Trans } from '@lingui/macro'
 import styled, { css } from 'styled-components/macro'
-import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
-import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
-import PortisIcon from '../../assets/images/portisIcon.png'
+// import CoinbaseWalletIcon from '../../assets/images/coinbaseWalletIcon.svg'
+// import FortmaticIcon from '../../assets/images/fortmaticIcon.png'
+// import PortisIcon from '../../assets/images/portisIcon.png'
 import WalletConnectIcon from '../../assets/images/walletConnectIcon.svg'
 // import { fortmatic, injected, portis, walletconnect, walletlink } from '../../connectors'
 import { injected, walletconnect } from '../../connectors'
@@ -18,13 +18,15 @@ import { useWalletModalToggle } from '../../state/application/hooks'
 // import { isTransactionRecent, useAllTransactions } from '../../state/transactions/hooks'
 // import { TransactionDetails } from '../../state/transactions/reducer'
 import { shortenAddress } from '../../utils'
-import { ButtonSecondary } from '../Button'
+import { HeaderButton } from '../Button'
 
 import Identicon from '../Identicon'
 import Loader from '../Loader'
 
 import { RowBetween } from '../Row'
 import WalletModal from '../WalletModal'
+
+import ButtonBg from 'assets/img/button_border.svg'
 
 const IconWrapper = styled.div<{ size?: number }>`
   ${({ theme }) => theme.flexColumnNoWrap};
@@ -36,12 +38,11 @@ const IconWrapper = styled.div<{ size?: number }>`
   }
 `
 
-const Web3StatusGeneric = styled(ButtonSecondary)`
+const Web3StatusGeneric = styled(HeaderButton)`
   ${({ theme }) => theme.flexRowNoWrap}
   width: 100%;
   align-items: center;
   padding: 0.5rem;
-  border-radius: 12px;
   cursor: pointer;
   user-select: none;
   :focus {
@@ -58,31 +59,19 @@ const Web3StatusError = styled(Web3StatusGeneric)`
     background-color: ${({ theme }) => darken(0.1, theme.red1)};
   }
 `
-
+const Web3StatusConnectFooter = styled.div``
 const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
-  background-color: ${({ theme }) => theme.primary4};
-  border: none;
-
-  color: ${({ theme }) => theme.primaryText1};
-  font-weight: 500;
-
-  :hover,
-  :focus {
-    border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
-    color: ${({ theme }) => theme.primaryText1};
-  }
-
   ${({ faded }) =>
     faded &&
     css`
-      background-color: ${({ theme }) => theme.primary5};
-      border: 1px solid ${({ theme }) => theme.primary5};
-      color: ${({ theme }) => theme.primaryText1};
+      /* background-color: ${({ theme }) => theme.primary5}; */
+      /* border: 1px solid ${({ theme }) => theme.primary5}; */
+      /* color: ${({ theme }) => theme.primaryText1}; */
 
       :hover,
       :focus {
-        border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
-        color: ${({ theme }) => darken(0.05, theme.primaryText1)};
+        /* border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)}; */
+        /* color: ${({ theme }) => darken(0.05, theme.primaryText1)}; */
       }
     `}
 `
@@ -167,7 +156,6 @@ function StatusIcon({ connector }: { connector: AbstractConnector }) {
 
 function Web3StatusInner() {
   const { account, connector, error } = useWeb3React()
-
   const { ENSName } = useENSName(account ?? undefined)
 
   const pending = []
@@ -203,11 +191,13 @@ function Web3StatusInner() {
     )
   } else {
     return (
-      <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
-        <Text>
-          <Trans>Connect to a wallet</Trans>
-        </Text>
-      </Web3StatusConnect>
+      <Web3StatusConnectFooter style={{ background: `url(${ButtonBg}) center center / cover` }}>
+        <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}>
+          <Text>
+            <Trans>Connect to a wallet</Trans>
+          </Text>
+        </Web3StatusConnect>
+      </Web3StatusConnectFooter>
     )
   }
 }

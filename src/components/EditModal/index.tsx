@@ -1,6 +1,6 @@
 import { t, Trans } from '@lingui/macro'
 import { ReactNode, useCallback, useState, useContext } from 'react'
-import { ButtonPrimary, ButtonLight, ButtonError } from 'components/Button'
+import { ButtonPrimary, ButtonLight } from 'components/Button'
 import Modal from 'components/Modal'
 import styled, { ThemeContext } from 'styled-components/macro'
 import { useWalletModalToggle } from 'state/application/hooks'
@@ -211,7 +211,7 @@ export function VailderInputPanel({
 }
 
 export default function EditModal() {
-  const { chainId, account, connector } = useActiveWeb3React()
+  const { account } = useActiveWeb3React()
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [userName, setUserName] = useState('')

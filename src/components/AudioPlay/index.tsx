@@ -1,10 +1,11 @@
-import { useRef, useState } from 'react'
+import { Children, ReactNode, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components/macro'
 import { Play, Pause } from 'react-feather'
 
 interface Props {
   src: string
 }
+
 const AudioWapper = styled.div`
   width: 100%;
   padding: 10px;
@@ -95,6 +96,32 @@ const PauseIcon = styled(Pause)`
     height: 30px;
   `}
 `
+export function Audio({ src, status, setStatus }: { src: string; status: boolean; setStatus: () => void }) {
+  const audioDomRef = useRef<{ current: HTMLAudioElement } | any>(null)
+  useEffect(() => {
+    if (status) {
+      audioDomRef.current.play()
+    } else {
+      audioDomRef.current.pause()
+    }
+  }, [status])
+
+  useEffect(() => {
+    audioDomRef.current.addEventListener('ended', () => {
+      setStatus()
+    })
+    return () => {
+      audioDomRef.current.removeEventListener('ended', () => {
+        setStatus()
+      })
+    }
+  }, [audioDomRef.current])
+  return (
+    <audio src={src} ref={audioDomRef} preload={'auto'} controlsList="nodownload">
+      <track src={src} kind="captions" />
+    </audio>
+  )
+}
 export default function AudioPlay({ src }: Props) {
   const [isPlay, setIsPlay] = useState(false)
   // const [isMuted, setIsMuted] = useState(false)
@@ -167,13 +194,12 @@ export default function AudioPlay({ src }: Props) {
         src={src}
         ref={audioDomRef}
         preload={'auto'}
+        controlsList="nodownload"
         onCanPlay={onCanPlay}
         onTimeUpdate={onTimeUpdate}
-        controlsList="nodownload"
       >
         <track src={src} kind="captions" />
       </audio>
-
       {isPlay ? <PauseIcon size={20} onClick={pauseAudio} /> : <PlayIcon size={20} onClick={playAudio} />}
 
       <SliderWapper>

@@ -1,4 +1,3 @@
-import React, { MouseEvent, KeyboardEvent, ReactNode } from 'react'
 import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
 import { Carousel, CarouselProps } from 'react-responsive-carousel'
 

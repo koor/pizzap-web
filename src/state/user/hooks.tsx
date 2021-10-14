@@ -3,7 +3,7 @@
 import { L2_CHAIN_IDS } from 'constants/chains'
 import { SupportedLocale } from 'constants/locales'
 import { L2_DEADLINE_FROM_NOW } from 'constants/misc'
-import JSBI from 'jsbi'
+// import JSBI from 'jsbi'
 import { useCallback, useMemo } from 'react'
 import { shallowEqual } from 'react-redux'
 import { useAppDispatch, useAppSelector } from 'state/hooks'
@@ -13,11 +13,11 @@ import { useAppDispatch, useAppSelector } from 'state/hooks'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { AppState } from '../index'
 import {
-  addSerializedPair,
-  addSerializedToken,
+  // addSerializedPair,
+  // addSerializedToken,
   removeSerializedToken,
-  SerializedPair,
-  SerializedToken,
+  // SerializedPair,
+  // SerializedToken,
   updateArbitrumAlphaAcknowledged,
   updateHideClosedPositions,
   updateUserDarkMode,
@@ -25,7 +25,7 @@ import {
   updateUserExpertMode,
   updateUserLocale,
   updateUserSingleHopOnly,
-  updateUserSlippageTolerance,
+  // updateUserSlippageTolerance,
 } from './actions'
 
 // function serializeToken(token: Token): SerializedToken {

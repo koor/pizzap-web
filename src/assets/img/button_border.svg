@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="170px" height="38px" viewBox="0 0 170 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形</title>
+    <defs>
+        <linearGradient x1="-2.73849937%" y1="48.8186985%" x2="115.204293%" y2="46.8118707%" id="linearGradient-1">
+            <stop stop-color="#F71313" offset="0%"></stop>
+            <stop stop-color="#DD12FB" offset="46.9411463%"></stop>
+            <stop stop-color="#FF7D10" offset="86.7486273%"></stop>
+            <stop stop-color="#C890FF" offset="99.9813907%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.3">
+        <g id="pizzap-首页" transform="translate(-1009.000000, -19.000000)" fill="#FC814C" stroke="url(#linearGradient-1)">
+            <g id="btn-top" transform="translate(1010.000000, 20.000000)">
+                <rect id="矩形" x="0" y="0" width="168" height="36" rx="4"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

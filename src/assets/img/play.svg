@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="98px" height="99px" viewBox="0 0 98 99" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>三角形</title>
+    <defs>
+        <filter x="-40.9%" y="-40.7%" width="181.8%" height="181.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="1" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="19.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.992396258   0 0 0 0 0.362158192   0 0 0 0 0.198573802  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="19.8078771%" y1="-9.87177917%" x2="73.7218057%" y2="112.928897%" id="linearGradient-2">
+            <stop stop-color="#FDA360" offset="0%"></stop>
+            <stop stop-color="#FF6320" offset="100%"></stop>
+        </linearGradient>
+        <path d="M92.6146186,90.0161429 L104.355022,107.437387 C104.972315,108.35337 104.730179,109.596335 103.814196,110.213627 C103.483935,110.436194 103.094747,110.555094 102.69649,110.555094 L79.215682,110.555094 C78.1111125,110.555094 77.215682,109.659664 77.215682,108.555094 C77.215682,108.156837 77.3345818,107.767648 77.5571491,107.437387 L89.2975529,90.0161429 C89.9148454,89.1001605 91.1578103,88.8580245 92.0737927,89.475317 C92.287181,89.6191221 92.4708135,89.8027547 92.6146186,90.0161429 Z" id="path-3"></path>
+        <filter x="-16.9%" y="-14.9%" width="133.8%" height="154.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.988235294   0 0 0 0 0.505882353   0 0 0 0 0.298039216  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pizzap-首页" transform="translate(-685.000000, -1120.000000)">
+            <g id="编组-4" filter="url(#filter-1)" transform="translate(645.543914, 1067.444906)">
+                <g id="三角形" transform="translate(90.956086, 99.055094) rotate(-270.000000) translate(-90.956086, -99.055094) ">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="url(#linearGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

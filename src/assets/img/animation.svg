@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="265px" height="269px" viewBox="0 0 265 269" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>路径 3</title>
+    <defs>
+        <filter x="-40.9%" y="-40.7%" width="181.8%" height="181.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="1" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="19.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.992396258   0 0 0 0 0.362158192   0 0 0 0 0.198573802  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="42.1554801%" y1="21.3912367%" x2="50%" y2="99.3166955%" id="linearGradient-2">
+            <stop stop-color="#9027EC" offset="0%"></stop>
+            <stop stop-color="#59A4E7" offset="34.4473032%"></stop>
+            <stop stop-color="#BB8378" offset="63.9181497%"></stop>
+            <stop stop-color="#FF6C2C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="pizzap-首页" transform="translate(-612.000000, -1035.000000)" fill="url(#linearGradient-2)">
+            <g id="编组-4" filter="url(#filter-1)" transform="translate(645.543914, 1067.444906)">
+                <path d="M52.7343472,5.27439349 C8.85024298,23.9308876 -5.99234298,61.1546425 8.20658932,116.945658 C29.5049878,200.632182 80.3208062,198.369944 127.458253,191.074961 C161.017151,180.963328 234.825234,122.11999 166.819092,58.8785805 C121.481665,16.717641 83.4534162,-1.15042137 52.7343472,5.27439349 Z" id="路径-3" transform="translate(98.827327, 99.170282) rotate(88.000000) translate(-98.827327, -99.170282) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

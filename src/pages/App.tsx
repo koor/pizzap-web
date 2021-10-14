@@ -1,7 +1,7 @@
-import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
+// import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
+// import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 
 import Web3ReactManager from '../components/Web3ReactManager'
 import ErrorBoundary from '../components/ErrorBoundary'
@@ -26,13 +26,13 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 78px 87px;
+  padding: 76px 0px 0px 0px;
   align-items: center;
   flex: 1;
   z-index: 1;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding: 4.875rem 16px 16px 16px;
+    padding: 6rem 16px 16px 16px;
   `};
 `
 
@@ -43,10 +43,6 @@ const HeaderWrapper = styled.div`
   position: fixed;
   top: 0;
   z-index: 2;
-  padding: 0 87px;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding: unset;
-  `};
 `
 
 const Marginer = styled.div`

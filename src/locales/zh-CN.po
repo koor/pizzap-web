@@ -11,21 +11,21 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#: src/components/AccountDetails/index.tsx
-msgid "(clear all)"
-msgstr ""
+#: 
+#~ msgid "(clear all)"
+#~ msgstr ""
 
 #: src/components/Menu/index.tsx
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: src/components/AccountDetails/index.tsx
 msgid "Account"
-msgstr ""
+msgstr "帐户"
 
 #: src/components/Menu/index.tsx
 msgid "Analytics"
-msgstr ""
+msgstr "分析"
 
 #: src/pages/Test/ActionSelector.tsx
 msgid "Approve Token"
@@ -33,19 +33,23 @@ msgstr "批准代币"
 
 #: src/components/WalletModal/index.tsx
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
-msgstr "连接钱包即表示您同意Uniswap实验室的<0>服务条款</0>，并确认您已阅读并理解<1>Uniswap协议免责声明</1>。"
+msgid "By connecting a wallet, you agree to Plainnft <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Plainnft protocol disclaimer</1>."
+msgstr "连接钱包即表示您同意 Plainnft <0>服务条款</0>，并承认您已阅读并理解 <1>Plainnft 协议免责声明</1>。"
+
+#: 
+#~ msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+#~ msgstr "连接钱包即表示您同意Uniswap实验室的<0>服务条款</0>，并确认您已阅读并理解<1>Uniswap协议免责声明</1>。"
 
 #: src/components/AccountDetails/index.tsx
 msgid "Change"
-msgstr ""
+msgstr "更改"
 
 #: src/components/Menu/index.tsx
 msgid "Claim UNI"
-msgstr ""
+msgstr "声明 UNI"
 
 #: src/components/Menu/index.tsx
 msgid "Code"
@@ -57,28 +61,28 @@ msgstr "在您的钱包中确认此交易"
 
 #: src/components/WalletModal/index.tsx
 msgid "Connect to a wallet"
-msgstr ""
+msgstr "连接到钱包"
 
 #: src/components/AccountDetails/index.tsx
 msgid "Connected with {name}"
-msgstr ""
+msgstr "与 {name} 连接"
 
 #: src/components/AccountDetails/Copy.tsx
 msgid "Copied"
-msgstr ""
+msgstr "已复制"
 
 #: src/components/AccountDetails/index.tsx
 #: src/components/AccountDetails/index.tsx
 msgid "Copy Address"
-msgstr ""
+msgstr "复制地址"
 
 #: src/components/Menu/index.tsx
 msgid "Dark Theme"
 msgstr "深色"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Disconnect"
-msgstr ""
+#: 
+#~ msgid "Disconnect"
+#~ msgstr "断开连接"
 
 #: src/components/Menu/index.tsx
 msgid "Discord"
@@ -91,11 +95,11 @@ msgstr "文档"
 #: src/components/WalletModal/PendingView.tsx
 #: src/components/WalletModal/index.tsx
 msgid "Error connecting"
-msgstr ""
+msgstr "连接错误"
 
 #: src/components/WalletModal/index.tsx
 msgid "Error connecting. Try refreshing the page."
-msgstr ""
+msgstr "连接错误。尝试刷新页面。"
 
 #: 
 #~ msgid "Home"
@@ -103,11 +107,11 @@ msgstr ""
 
 #: src/components/WalletModal/PendingView.tsx
 msgid "Initializing..."
-msgstr ""
+msgstr "正在初始化..."
 
 #: src/components/WalletModal/index.tsx
 msgid "Install Metamask"
-msgstr ""
+msgstr "安装 Metamask"
 
 #: src/components/Menu/index.tsx
 msgid "Language"
@@ -119,43 +123,56 @@ msgstr "浅色"
 
 #: src/components/Menu/index.tsx
 msgid "Menu"
-msgstr ""
+msgstr "菜单"
+
+#: src/pages/Personal/ActionSelector.tsx
+msgid "Not Sold"
+msgstr "未售出"
 
 #: src/components/Web3ReactManager/index.tsx
 msgid "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device."
-msgstr ""
+msgstr "糟糕！发生未知错误。请刷新页面，或从其他浏览器或设备访问。"
+
+#: src/pages/Personal/ActionSelector.tsx
+msgid "Pending Order"
+msgstr "待定订单"
+
+#: src/components/Menu/index.tsx
+msgid "Personal"
+msgstr "个人"
 
 #: src/components/WalletModal/index.tsx
 msgid "Please connect to the appropriate Ethereum network."
-msgstr ""
+msgstr "请连接到合适的以太坊网络。"
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "Proposal Submitted"
-msgstr ""
+msgstr "提案已提交"
 
 #: src/pages/Test/ActionSelector.tsx
 msgid "Proposed Action"
 msgstr "提议操作"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Recent Transactions"
-msgstr ""
+#: 
+#~ msgid "Recent Transactions"
+#~ msgstr "最近的交易"
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "Return"
-msgstr ""
+msgstr "返回"
 
+#: src/pages/Personal/ActionSelector.tsx
 #: src/pages/Test/ActionSelector.tsx
 msgid "Select an action"
 msgstr "选择操作"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Show Portis"
-msgstr ""
+#: 
+#~ msgid "Show Portis"
+#~ msgstr ""
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "Submitting Proposal"
-msgstr ""
+msgstr "提交提案"
 
 #: src/pages/Test/ActionSelector.tsx
 msgid "Transfer Token"
@@ -163,25 +180,28 @@ msgstr "代币转账"
 
 #: src/components/WalletModal/PendingView.tsx
 msgid "Try Again"
-msgstr ""
+msgstr "再试一次"
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "View on Etherscan"
-msgstr ""
+msgstr "在 Etherscan 上查看"
 
 #: src/components/AccountDetails/index.tsx
-#: src/components/AccountDetails/index.tsx
 msgid "View on Explorer"
-msgstr ""
+msgstr "在以太坊资源浏览器上查看"
 
 #: src/components/ModalViews/index.tsx
 msgid "View transaction on Explorer"
-msgstr ""
+msgstr "在资源管理器上查看交易"
 
 #: src/components/WalletModal/index.tsx
 msgid "Wrong Network"
-msgstr ""
+msgstr "错误的网络"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Your transactions will appear here..."
+#: 
+#~ msgid "Your transactions will appear here..."
+#~ msgstr "您的交易将出现在这里..."
+
+#: src/pages/Personal/ActionSelector.tsx
+msgid "{proposalAction}"
 msgstr ""

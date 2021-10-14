@@ -1,5 +1,4 @@
 import Modal from 'components/Modal'
-import React from 'react'
 import { ApplicationModal } from 'state/application/actions'
 import { useModalOpen, useWalletModalToggle } from 'state/application/hooks'
 import styled from 'styled-components/macro'

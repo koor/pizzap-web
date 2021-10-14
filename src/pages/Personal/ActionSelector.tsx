@@ -1,7 +1,6 @@
 import { useCallback } from 'react'
 
 import styled from 'styled-components/macro'
-
 import { Text } from 'rebass'
 import { CloseIcon } from 'theme'
 import { Trans } from '@lingui/macro'

@@ -11,9 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#: src/components/AccountDetails/index.tsx
-msgid "(clear all)"
-msgstr "(clear all)"
+#: 
+#~ msgid "(clear all)"
+#~ msgstr "(clear all)"
 
 #: src/components/Menu/index.tsx
 msgid "About"
@@ -36,8 +36,12 @@ msgid "Back"
 msgstr "Back"
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
-msgstr "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+msgid "By connecting a wallet, you agree to Plainnft <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Plainnft protocol disclaimer</1>."
+msgstr "By connecting a wallet, you agree to Plainnft <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Plainnft protocol disclaimer</1>."
+
+#: 
+#~ msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+#~ msgstr "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
 
 #: src/components/AccountDetails/index.tsx
 msgid "Change"
@@ -76,9 +80,9 @@ msgstr "Copy Address"
 msgid "Dark Theme"
 msgstr "Dark Theme"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Disconnect"
-msgstr "Disconnect"
+#: 
+#~ msgid "Disconnect"
+#~ msgstr "Disconnect"
 
 #: src/components/Menu/index.tsx
 msgid "Discord"
@@ -121,9 +125,21 @@ msgstr "Light Theme"
 msgid "Menu"
 msgstr "Menu"
 
+#: src/pages/Personal/ActionSelector.tsx
+msgid "Not Sold"
+msgstr "Not Sold"
+
 #: src/components/Web3ReactManager/index.tsx
 msgid "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device."
 msgstr "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device."
+
+#: src/pages/Personal/ActionSelector.tsx
+msgid "Pending Order"
+msgstr "Pending Order"
+
+#: src/components/Menu/index.tsx
+msgid "Personal"
+msgstr "Personal"
 
 #: src/components/WalletModal/index.tsx
 msgid "Please connect to the appropriate Ethereum network."
@@ -137,21 +153,22 @@ msgstr "Proposal Submitted"
 msgid "Proposed Action"
 msgstr "Proposed Action"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Recent Transactions"
-msgstr "Recent Transactions"
+#: 
+#~ msgid "Recent Transactions"
+#~ msgstr "Recent Transactions"
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "Return"
 msgstr "Return"
 
+#: src/pages/Personal/ActionSelector.tsx
 #: src/pages/Test/ActionSelector.tsx
 msgid "Select an action"
 msgstr "Select an action"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Show Portis"
-msgstr "Show Portis"
+#: 
+#~ msgid "Show Portis"
+#~ msgstr "Show Portis"
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "Submitting Proposal"
@@ -182,6 +199,10 @@ msgstr "View transaction on Explorer"
 msgid "Wrong Network"
 msgstr "Wrong Network"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Your transactions will appear here..."
-msgstr "Your transactions will appear here..."
+#: 
+#~ msgid "Your transactions will appear here..."
+#~ msgstr "Your transactions will appear here..."
+
+#: src/pages/Personal/ActionSelector.tsx
+msgid "{proposalAction}"
+msgstr "{proposalAction}"

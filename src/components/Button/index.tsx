@@ -19,7 +19,7 @@ const Base = styled(RebassButton)<
   width: ${({ width }) => width ?? '100%'};
   font-weight: 500;
   text-align: center;
-  border-radius: ${({ $borderRadius }) => $borderRadius ?? '20px'};
+  border-radius: ${({ $borderRadius }) => $borderRadius ?? '4px'};
   outline: none;
   border: 1px solid transparent;
   color: white;
@@ -49,15 +49,61 @@ const Base = styled(RebassButton)<
   }
 `
 
+export const HeaderButton = styled(Base)`
+  background-color: ${({ theme }) => theme.primary6};
+  color: white;
+  &:focus {
+  }
+  &:hover {
+    background-color: ${({ theme }) => theme.text6};
+  }
+  &:active {
+  }
+  &:disabled {
+    background-color: ${({ theme, altDisabledStyle, disabled }) =>
+      altDisabledStyle ? (disabled ? theme.primary6 : theme.bg2) : darken(0.05, theme.primary6)};
+    color: ${({ theme }) => theme.text6};
+    cursor: auto;
+    box-shadow: none;
+    border: 1px solid transparent;
+    outline: none;
+  }
+`
+
+export const PrimaryButton = styled(Base)`
+  background: ${({ theme }) => theme.primary8};
+  color: white;
+  &:focus {
+    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary6)};
+    background: ${({ theme }) => theme.primary8};
+  }
+  &:hover {
+    background: ${({ theme }) => theme.primary9};
+  }
+  &:active {
+    box-shadow: 0 0 0 1pt ${({ theme }) => darken(1, theme.primary6)};
+    background: ${({ theme }) => theme.primary8};
+  }
+  &:disabled {
+    background-color: ${({ theme, altDisabledStyle, disabled }) =>
+      altDisabledStyle ? (disabled ? theme.primary1 : theme.bg2) : theme.primary6};
+    color: ${({ theme }) => theme.text2};
+    cursor: auto;
+    box-shadow: none;
+    border: 1px solid transparent;
+    outline: none;
+  }
+`
+
 export const ButtonPrimary = styled(Base)`
-  background-color: ${({ theme }) => theme.primary1};
+  background-color: ${({ theme }) => theme.primary6};
   color: white;
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     background-color: ${({ theme }) => darken(0.05, theme.primary1)};
   }
   &:hover {
-    background-color: ${({ theme }) => darken(0.05, theme.primary1)};
+    background-color: ${({ theme }) => darken(0.05, theme.primary7)};
   }
   &:active {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};

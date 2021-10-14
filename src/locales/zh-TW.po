@@ -11,9 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#: src/components/AccountDetails/index.tsx
-msgid "(clear all)"
-msgstr ""
+#: 
+#~ msgid "(clear all)"
+#~ msgstr ""
 
 #: src/components/Menu/index.tsx
 msgid "About"
@@ -36,8 +36,12 @@ msgid "Back"
 msgstr ""
 
 #: src/components/WalletModal/index.tsx
-msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+msgid "By connecting a wallet, you agree to Plainnft <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Plainnft protocol disclaimer</1>."
 msgstr ""
+
+#: 
+#~ msgid "By connecting a wallet, you agree to Uniswap Labs’ <0>Terms of Service</0> and acknowledge that you have read and understand the <1>Uniswap protocol disclaimer</1>."
+#~ msgstr ""
 
 #: src/components/AccountDetails/index.tsx
 msgid "Change"
@@ -76,9 +80,9 @@ msgstr ""
 msgid "Dark Theme"
 msgstr ""
 
-#: src/components/AccountDetails/index.tsx
-msgid "Disconnect"
-msgstr ""
+#: 
+#~ msgid "Disconnect"
+#~ msgstr ""
 
 #: src/components/Menu/index.tsx
 msgid "Discord"
@@ -117,8 +121,20 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
+#: src/pages/Personal/ActionSelector.tsx
+msgid "Not Sold"
+msgstr ""
+
 #: src/components/Web3ReactManager/index.tsx
 msgid "Oops! An unknown error occurred. Please refresh the page, or visit from another browser or device."
+msgstr ""
+
+#: src/pages/Personal/ActionSelector.tsx
+msgid "Pending Order"
+msgstr ""
+
+#: src/components/Menu/index.tsx
+msgid "Personal"
 msgstr ""
 
 #: src/components/WalletModal/index.tsx
@@ -133,21 +149,22 @@ msgstr ""
 msgid "Proposed Action"
 msgstr "提議操作"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Recent Transactions"
-msgstr ""
+#: 
+#~ msgid "Recent Transactions"
+#~ msgstr ""
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "Return"
 msgstr ""
 
+#: src/pages/Personal/ActionSelector.tsx
 #: src/pages/Test/ActionSelector.tsx
 msgid "Select an action"
 msgstr "選擇操作"
 
-#: src/components/AccountDetails/index.tsx
-msgid "Show Portis"
-msgstr ""
+#: 
+#~ msgid "Show Portis"
+#~ msgstr ""
 
 #: src/pages/Test/SubmissionModal.tsx
 msgid "Submitting Proposal"
@@ -178,6 +195,10 @@ msgstr ""
 msgid "Wrong Network"
 msgstr ""
 
-#: src/components/AccountDetails/index.tsx
-msgid "Your transactions will appear here..."
+#: 
+#~ msgid "Your transactions will appear here..."
+#~ msgstr ""
+
+#: src/pages/Personal/ActionSelector.tsx
+msgid "{proposalAction}"
 msgstr ""

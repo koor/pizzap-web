@@ -251,11 +251,11 @@ export default function Personal() {
                 <CheckboxWrapper>
                   <CheckboxOption>
                     <Checkbox checked={checkeds.audio} onChange={() => changeChecked({ audio: !checkeds.audio })} />
-                    Audio
+                    <Trans>Audio</Trans>
                   </CheckboxOption>
                   <CheckboxOption>
                     <Checkbox checked={checkeds.source} onChange={() => changeChecked({ source: !checkeds.source })} />
-                    Sound source
+                    <Trans>Sound source</Trans>
                   </CheckboxOption>
                 </CheckboxWrapper>
 

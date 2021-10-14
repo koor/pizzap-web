@@ -13,6 +13,8 @@ export interface Colors {
   text4: Color
   text5: Color
 
+  text6: Color
+
   // backgrounds / greys
   bg0: Color
   bg1: Color
@@ -21,6 +23,8 @@ export interface Colors {
   bg4: Color
   bg5: Color
   bg6: Color
+  // new
+  bg7: Color
 
   modalBG: Color
   advancedBG: Color
@@ -32,8 +36,14 @@ export interface Colors {
   primary4: Color
   primary5: Color
 
-  primaryText1: Color
+  // new
+  primary6: Color
+  primary7: Color
+  primary8: color
+  primary9: color
 
+  primaryText1: Color
+  primaryText2: Color
   // pinks
   secondary1: Color
   secondary2: Color
@@ -55,6 +65,8 @@ export interface Colors {
   error: Color
   success: Color
   warning: Color
+
+  border1: Color
 }
 
 declare module 'styled-components/macro' {
