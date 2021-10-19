@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useMemo } from 'react'
 import { Trans } from '@lingui/macro'
 import { darken } from 'polished'
 // import { Link } from 'react-router-dom'
@@ -385,136 +385,148 @@ const OfferingItemsImg = styled.img`
 export default function Home() {
   const theme = useContext(ThemeContext)
   const [state, setstate] = useState(false)
-  const exclusive = [
-    {
-      name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
-      audioName: 'Audio Name1',
-      author: 'Rowen',
-    },
-    {
-      name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
-      audioName: 'Audio Name2',
-      author: 'Rowen',
-    },
-    {
-      name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
-      audioName: 'Audio Name3',
-      author: 'Rowen',
-    },
-    {
-      name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
-      audioName: 'Audio Name4',
-      author: 'Rowen',
-    },
-  ]
-  const exclusiveAD = [
-    {
-      title: '4 Stages of Pizzap Pave The Way to Blockchain 3.0',
-      background: OfferOne,
-    },
-    {
-      title: 'We’re Launching The Pizzap Ambassador Plan',
-      background: OfferTwo,
-    },
-  ]
-  const Voice = [
-    {
-      name: 'Project Name1',
-      audioName: 'Audio Name1',
-      usdt: '99.99',
-      author: 'Rowen',
-    },
-    {
-      name: 'Project Name2',
-      audioName: 'Audio Name2',
-      usdt: '99.99',
-      author: 'Rowen',
-    },
-    {
-      name: 'Project Name3',
-      audioName: 'Audio Name3',
-      usdt: '99.99',
-      author: 'Rowen',
-    },
-    {
-      name: 'Project Name4',
-      audioName: 'Audio Name4',
-      usdt: '99.99',
-      author: 'Rowen',
-    },
-    {
-      name: 'Project Name4',
-      audioName: 'Audio Name4',
-      usdt: '99.99',
-      author: 'Rowen',
-    },
-    {
-      name: 'Project Name4',
-      audioName: 'Audio Name4',
-      usdt: '99.99',
-      author: 'Rowen',
-    },
-  ]
-
-  const artNftList = [
-    {
-      name: 'Project Name1',
-      price: '0.8Ξ ($2,696)',
-      email: 'Currentofferby@jells888',
-      audioName: 'Audio Name1',
-    },
-    {
-      name: 'Project Name2',
-      price: '0.8Ξ ($2,696)',
-      email: 'Currentofferby@jells888',
-      audioName: 'Audio Name2',
-    },
-    {
-      name: 'Project Name3',
-      price: '0.8Ξ ($2,696)',
-      email: 'Currentofferby@jells888',
-      audioName: 'Audio Name3',
-    },
-  ]
-  const presentList = [
-    {
-      icon: icon_1,
-      title: 'Collect',
-      desc: 'Ensure collectors only have a limited number of authenticated digital artworks, thereby ensuring the scarcity and uniqueness of digital art.',
-    },
-    {
-      icon: icon_2,
-      title: 'Transparency',
-      desc: 'Ensure collectors only have a limited number of authenticated digital artworks, thereby ensuring the scarcity and uniqueness of digital art.',
-    },
-    {
-      icon: icon_3,
-      title: 'Collect',
-      desc: 'Ensure collectors only have a limited number of authenticated digital artworks, thereby ensuring the scarcity and uniqueness of digital art.',
-    },
-  ]
-
   const [offeringIndex, setOfferingIndex] = useState(0)
-  const offeringList = [
-    {
-      title: 'Initial Voice Offering (IVO) must be proposed by the community and voted upon within the DAO',
-      img: OfferingBg,
-    },
-    {
-      title: 'The community stakes PNFT to vote on the proposal.',
-      img: OfferingBg,
-    },
-    {
-      title:
-        'Once the mNFT is minted, users can purchase rights to use the mNFT to generate a new Voice NFT (vNFT) with the text of their choosing through the NFT marketplace.',
-      img: OfferingBg,
-    },
-    {
-      title:
-        'purchasing and trading profits, will also be distributed to the target person, community and the proposer.',
-      img: OfferingBg,
-    },
-  ]
+  const offeringList = useMemo(() => {
+    return [
+      {
+        title: 'Initial Voice Offering (IVO) must be proposed by the community and voted upon within the DAO',
+        img: OfferingBg,
+      },
+      {
+        title: 'The community stakes PNFT to vote on the proposal.',
+        img: BannerBg,
+      },
+      {
+        title:
+          'Once the mNFT is minted, users can purchase rights to use the mNFT to generate a new Voice NFT (vNFT) with the text of their choosing through the NFT marketplace.',
+        img: OfferingBg,
+      },
+      {
+        title:
+          'purchasing and trading profits, will also be distributed to the target person, community and the proposer.',
+        img: BannerBg,
+      },
+    ]
+  }, [])
+  const exclusive = useMemo(() => {
+    return [
+      {
+        name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+        audioName: 'Audio Name1',
+        author: 'Rowen',
+      },
+      {
+        name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+        audioName: 'Audio Name2',
+        author: 'Rowen',
+      },
+      {
+        name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+        audioName: 'Audio Name3',
+        author: 'Rowen',
+      },
+      {
+        name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+        audioName: 'Audio Name4',
+        author: 'Rowen',
+      },
+    ]
+  }, [])
+  const exclusiveAD = useMemo(() => {
+    return [
+      {
+        title: '4 Stages of Pizzap Pave The Way to Blockchain 3.0',
+        background: OfferOne,
+      },
+      {
+        title: 'We’re Launching The Pizzap Ambassador Plan',
+        background: OfferTwo,
+      },
+    ]
+  }, [])
+  const Voice = useMemo(() => {
+    return [
+      {
+        name: 'Project Name1',
+        audioName: 'Audio Name1',
+        usdt: '99.99',
+        author: 'Rowen',
+      },
+      {
+        name: 'Project Name2',
+        audioName: 'Audio Name2',
+        usdt: '99.99',
+        author: 'Rowen',
+      },
+      {
+        name: 'Project Name3',
+        audioName: 'Audio Name3',
+        usdt: '99.99',
+        author: 'Rowen',
+      },
+      {
+        name: 'Project Name4',
+        audioName: 'Audio Name4',
+        usdt: '99.99',
+        author: 'Rowen',
+      },
+      {
+        name: 'Project Name4',
+        audioName: 'Audio Name4',
+        usdt: '99.99',
+        author: 'Rowen',
+      },
+      {
+        name: 'Project Name4',
+        audioName: 'Audio Name4',
+        usdt: '99.99',
+        author: 'Rowen',
+      },
+    ]
+  }, [])
+
+  const artNftList = useMemo(() => {
+    return [
+      {
+        name: 'Project Name1',
+        price: '0.8Ξ ($2,696)',
+        email: 'Currentofferby@jells888',
+        audioName: 'Audio Name1',
+      },
+      {
+        name: 'Project Name2',
+        price: '0.8Ξ ($2,696)',
+        email: 'Currentofferby@jells888',
+        audioName: 'Audio Name2',
+      },
+      {
+        name: 'Project Name3',
+        price: '0.8Ξ ($2,696)',
+        email: 'Currentofferby@jells888',
+        audioName: 'Audio Name3',
+      },
+    ]
+  }, [])
+
+  const presentList = useMemo(() => {
+    return [
+      {
+        icon: icon_1,
+        title: 'Collect',
+        desc: 'Ensure collectors only have a limited number of authenticated digital artworks, thereby ensuring the scarcity and uniqueness of digital art.',
+      },
+      {
+        icon: icon_2,
+        title: 'Transparency',
+        desc: 'Ensure collectors only have a limited number of authenticated digital artworks, thereby ensuring the scarcity and uniqueness of digital art.',
+      },
+      {
+        icon: icon_3,
+        title: 'Collect',
+        desc: 'Ensure collectors only have a limited number of authenticated digital artworks, thereby ensuring the scarcity and uniqueness of digital art.',
+      },
+    ]
+  }, [])
 
   // function groupObject(data: [] | any): Array<Array<any>> {
   //   const result = []
@@ -735,7 +747,7 @@ export default function Home() {
               </OfferingItemsLeft>
               <OfferingItemsRight>
                 <PaginationCarousel index={offeringIndex} changeIndex={setOfferingIndex}>
-                  {offeringList.map((item, index) => {
+                  {offeringList.map((item) => {
                     return (
                       <SwiperSlide key={item.title}>
                         <OfferingItemsImg src={item.img} alt={item.title} />

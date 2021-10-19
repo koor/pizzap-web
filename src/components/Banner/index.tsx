@@ -6,14 +6,14 @@ import { ChevronLeft, ChevronRight } from 'react-feather'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 // import Swiper core and required modules
-import SwiperCore, { Pagination, Autoplay, Navigation } from 'swiper'
+import SwiperCore, { Pagination, Autoplay, Navigation, EffectFade } from 'swiper'
 
 // Import Swiper styles
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import './index.css'
 // install Swiper modules
-SwiperCore.use([Autoplay, Pagination, Navigation])
+SwiperCore.use([Autoplay, Pagination, Navigation, EffectFade])
 
 export function ModeCarousel({ children }: { children: ReactChild[] }) {
   return (
@@ -22,7 +22,6 @@ export function ModeCarousel({ children }: { children: ReactChild[] }) {
       slidesPerView={4} // 一行显示
       centeredSlides={true}
       className="mySwiper"
-      parallax={true}
       onSwiper={(swiper) => {
         if (swiper.activeIndex == 0) {
           swiper.activeIndex = 1
@@ -95,6 +94,7 @@ export function PaginationCarousel({
   return (
     <Swiper
       autoplay={true}
+      effect={'fade'}
       initialSlide={index ? index : 0}
       pagination={pagination}
       navigation={navigation}
