@@ -1,72 +1,190 @@
-import Card, {
-  LightCard,
-  LightGreyCard,
-  GreyCard,
-  DarkGreyCard,
-  DarkCard,
-  OutlineCard,
-  YellowCard,
-  BlueCard,
-} from 'components/Card'
-import {
-  ButtonPrimary,
-  ButtonLight,
-  ButtonGray,
-  ButtonSecondary,
-  ButtonOutlined,
-  ButtonYellow,
-  ButtonEmpty,
-  ButtonText,
-  ButtonConfirmed,
-  ButtonError,
-  ButtonDropdown,
-  ButtonDropdownLight,
-  ButtonRadioChecked,
-} from 'components/Button'
+import { Trans } from '@lingui/macro'
+import styled from 'styled-components/macro'
+import { CommItem, PictureItem, PictureSaleItem } from 'components/Commodity'
+import { AutoColumn } from 'components/Column'
+import { Label, Checkbox } from '@rebass/forms'
 
-import Styled from 'styled-components/macro'
+import OfferProduct from 'assets/img/item.png'
+import Music from 'assets/img/music.svg'
+import { useCallback, useState } from 'react'
+import { ProposalAction, ProposalActionSelector, ProposalActionSelectorModal } from './ActionSelector'
+import { darken } from 'polished'
 
-const Wapper = Styled.div`
-  button, div {
-    width: 100%;
-    margin-top: .625rem;
+const MarketWrapper = styled(AutoColumn)`
+  width: 100%;
+`
+
+const Title = styled.h1`
+  font-size: 24px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text6};
+  padding-bottom: 11px;
+  border-bottom: 1px solid ${({ theme }) => darken(0.69, theme.text1)};
+`
+
+const DescWarpper = styled.div`
+  padding: 0px 13px 13px 13px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+const DescTitle = styled.span`
+  font-size: 16px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.text1};
+`
+const DescInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+`
+const InfoBold = styled.span<{ color?: string | null }>`
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ theme, color }) => (color ? color : theme.text1)};
+`
+
+const Wrapper = styled(AutoColumn)`
+  /* width: 800px; */
+  margin-top: 0.625rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 28px 20px;
+`
+
+const Header = styled.div`
+  ${({ theme }) => theme.flexRowNoWrap}
+  justify-content: space-between;
+`
+
+const CheckboxWrapper = styled.div`
+  display: flex;
+  & > label {
+    width: unset;
+    &:last-child {
+      margin-left: 30px;
+    }
   }
 `
+const CheckboxOption = styled(Label)`
+  & > div > svg {
+    color: ${({ theme }) => theme.text6};
+  }
+`
+
 export default function Market() {
+  const [checkeds, setCheckeds] = useState({
+    audio: false,
+    source: false,
+  })
+
+  const [modalOpen, setModalOpen] = useState(false)
+  const [proposalAction, setProposalAction] = useState(ProposalAction.TRANSFER_TOKEN)
+
+  const OfferInfo = ({ item }: any) => {
+    return (
+      <DescWarpper>
+        <DescTitle>{item.name}</DescTitle>
+        <DescInfo>
+          <InfoBold>{item.audioName}</InfoBold>
+          <InfoBold>
+            <Trans>Creator: {item.author}</Trans>
+          </InfoBold>
+        </DescInfo>
+      </DescWarpper>
+    )
+  }
+
+  const changeChecked = useCallback(
+    (item: { audio?: boolean; source?: boolean }) => {
+      setCheckeds({ ...checkeds, ...item })
+    },
+    [checkeds]
+  )
+
+  const handleActionSelectorClick = useCallback(() => {
+    console.log(1111)
+    setModalOpen(true)
+  }, [setModalOpen])
+
+  const handleActionChange = useCallback(
+    (proposalAction: ProposalAction) => {
+      setProposalAction(proposalAction)
+    },
+    [setProposalAction]
+  )
+
+  const handleDismissActionSelector = useCallback(() => {
+    setModalOpen(false)
+  }, [setModalOpen])
+
   return (
-    <Wapper>
-      <h1>Card</h1>
-      <Card>Card</Card>
-
-      <LightCard>LightCard</LightCard>
-
-      <LightGreyCard>LightGreyCard</LightGreyCard>
-
-      <GreyCard>GreyCard</GreyCard>
-
-      <DarkGreyCard>DarkGreyCard</DarkGreyCard>
-
-      <DarkCard>DarkCard</DarkCard>
-
-      <OutlineCard>OutlineCard</OutlineCard>
-
-      <YellowCard>YellowCard</YellowCard>
-
-      <BlueCard>BlueCard</BlueCard>
-      <h1>Button</h1>
-      <ButtonPrimary>ButtonPrimary</ButtonPrimary>
-      <ButtonLight>ButtonLight</ButtonLight>
-      <ButtonGray>ButtonGray</ButtonGray>
-      <ButtonSecondary>ButtonSecondary</ButtonSecondary>
-      <ButtonOutlined>ButtonOutlined</ButtonOutlined>
-      <ButtonYellow>ButtonYellow</ButtonYellow>
-      <ButtonEmpty>ButtonEmpty</ButtonEmpty>
-      <ButtonText>ButtonText</ButtonText>
-      <ButtonConfirmed>ButtonConfirmed</ButtonConfirmed>
-      <ButtonError>ButtonError</ButtonError>
-      <ButtonDropdown>ButtonDropdown</ButtonDropdown>
-      <ButtonDropdownLight>ButtonDropdownLight</ButtonDropdownLight>
-      <ButtonRadioChecked>ButtonRadioChecked</ButtonRadioChecked>
-    </Wapper>
+    <MarketWrapper>
+      <Title>Market</Title>
+      <Header>
+        <CheckboxWrapper>
+          <CheckboxOption>
+            <Checkbox checked={checkeds.audio} onChange={() => changeChecked({ audio: !checkeds.audio })} />
+            <Trans>Audio</Trans>
+          </CheckboxOption>
+          <CheckboxOption>
+            <Checkbox checked={checkeds.source} onChange={() => changeChecked({ source: !checkeds.source })} />
+            <Trans>Sound source</Trans>
+          </CheckboxOption>
+        </CheckboxWrapper>
+        <ProposalActionSelector onClick={handleActionSelectorClick} proposalAction={proposalAction} />
+      </Header>
+      <Wrapper>
+        <CommItem
+          bg={OfferProduct}
+          music={Music}
+          onClick={() => {
+            console.log(11)
+          }}
+        >
+          <OfferInfo
+            item={{
+              name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+              audioName: 'Audio Name1',
+              author: 'Rowen',
+            }}
+          />
+        </CommItem>
+        <CommItem
+          bg={OfferProduct}
+          music={Music}
+          onClick={() => {
+            console.log(11)
+          }}
+        >
+          <OfferInfo
+            item={{
+              name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+              audioName: 'Audio Name1',
+              author: 'Rowen',
+            }}
+          />
+        </CommItem>
+        <CommItem
+          bg={OfferProduct}
+          music={Music}
+          onClick={() => {
+            console.log(11)
+          }}
+        >
+          <OfferInfo
+            item={{
+              name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+              audioName: 'Audio Name1',
+              author: 'Rowen',
+            }}
+          />
+        </CommItem>
+      </Wrapper>
+      <ProposalActionSelectorModal
+        isOpen={modalOpen}
+        onDismiss={handleDismissActionSelector}
+        onProposalActionSelect={(proposalAction: ProposalAction) => handleActionChange(proposalAction)}
+      />
+    </MarketWrapper>
   )
 }
