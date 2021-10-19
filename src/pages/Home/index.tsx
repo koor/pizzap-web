@@ -6,7 +6,6 @@ import { darken } from 'polished'
 import styled, { ThemeContext } from 'styled-components/macro'
 import { ColumnCenter, AutoColumn } from 'components/Column'
 import { CommItem, PictureItem, PictureSaleItem } from 'components/Commodity'
-// import AudioPlay from 'components/AudioPlay'
 import PlayAnimation from './playAnimation'
 import { PrimaryButton, ButtonExplore } from 'components/Button'
 import { ModeCarousel, PaginationCarousel, SwiperSlide } from 'components/Banner'
@@ -571,26 +570,6 @@ export default function Home() {
             <Trans>Exclusive Offer</Trans>
           </AudioColumn>
           <AudioListWrapper>
-            {/* <BannerRotation>
-              {groupObject(exclusive).map((item, index) => (
-                <div key={index} style={{ display: 'flex' }}>
-                  {item.map((swip, i) => {
-                    return (
-                      <CommItem
-                        bg={OfferProduct}
-                        music={Music}
-                        onClick={() => {
-                          setstate(!state)
-                        }}
-                        key={i}
-                      >
-                        <OfferInfo item={swip} />
-                      </CommItem>
-                    )
-                  })}
-                </div>
-              ))}
-            </BannerRotation> */}
             <ModeCarousel>
               {exclusive.map((item, index) => {
                 return (

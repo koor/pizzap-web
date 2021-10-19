@@ -244,7 +244,7 @@ export default function Header() {
       </Modal>
       <Title href=".">
         <UniIcon>
-          <img width={'24px'} src={darkMode ? LogoDark : LogoPink} alt="logo" />
+          <img width={'110px'} height={'30px'} src={darkMode ? LogoDark : LogoPink} alt="logo" />
         </UniIcon>
       </Title>
       <HeaderLinks>

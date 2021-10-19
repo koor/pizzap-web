@@ -1,7 +1,5 @@
 import styled from 'styled-components/macro'
 import { darken } from 'polished'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel, CarouselProps } from 'react-responsive-carousel'
 import { ReactChild } from 'react'
 import { ChevronLeft, ChevronRight } from 'react-feather'
 // Import Swiper React components
@@ -17,19 +15,6 @@ import './index.css'
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination, Navigation])
 
-export default function BannerRotation({ children }: { children: CarouselProps | any }) {
-  const settings = {
-    autoPlay: true,
-    infiniteLoop: true,
-    showArrows: false,
-    showStatus: false,
-    showThumbs: false,
-    useKeyboardArrows: true,
-    dynamicHeight: false,
-    emulateTouch: true,
-  }
-  return <Carousel {...settings}>{children}</Carousel>
-}
 export function ModeCarousel({ children }: { children: ReactChild[] }) {
   return (
     <Swiper
