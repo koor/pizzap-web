@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro'
 import { darken } from 'polished'
 import { RowBetween } from '../Row'
-import { ChevronDown, Check } from 'react-feather'
+import { ChevronDown, Check, ArrowRight } from 'react-feather'
 import { Button as RebassButton, ButtonProps as ButtonPropsOriginal } from 'rebass/styled-components'
 import useTheme from '../../hooks/useTheme'
 
@@ -329,6 +329,17 @@ export function ButtonError({ error, ...rest }: { error?: boolean } & ButtonProp
   } else {
     return <ButtonPrimary {...rest} />
   }
+}
+
+export function ButtonExplore({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
+  return (
+    <PrimaryButton {...rest} disabled={disabled}>
+      <RowBetween>
+        <div style={{ display: 'flex', alignItems: 'center' }}>{children}</div>
+        <ArrowRight size={24} color={'#E6E6E6'} strokeWidth={3} />
+      </RowBetween>
+    </PrimaryButton>
+  )
 }
 
 export function ButtonDropdown({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {

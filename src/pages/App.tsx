@@ -5,7 +5,8 @@ import styled from 'styled-components/macro'
 
 import Web3ReactManager from '../components/Web3ReactManager'
 import ErrorBoundary from '../components/ErrorBoundary'
-import Header from '../components/Header'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 
@@ -15,6 +16,7 @@ import Create from './Create'
 import Forum from './Forum'
 import Personal from './Personal'
 import { RedirectPathToHomeOnly } from './Home/redirects'
+import { darken } from 'polished'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -48,7 +50,14 @@ const HeaderWrapper = styled.div`
 const Marginer = styled.div`
   margin-top: 5rem;
 `
-
+const FooterWrapper = styled.div`
+  ${({ theme }) => theme.flexRowNoWrap}
+  width: 100%;
+  border-top: 1px solid ${({ theme }) => darken(0.69, theme.text1)};
+  align-items: center;
+  justify-content: center;
+  padding: 37px 0px 55px 0;
+`
 // function TopLevelModals() {
 //   const open = useModalOpen(ApplicationModal.ADDRESS_CLAIM)
 //   const toggle = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
@@ -56,6 +65,8 @@ const Marginer = styled.div`
 // }
 
 function App() {
+  console.log(darken(0.69, '#FFFFFF'))
+
   return (
     <ErrorBoundary>
       {/* <Route component={GoogleAnalyticsReporter} /> */}
@@ -78,6 +89,9 @@ function App() {
             </Switch>
             <Marginer />
           </BodyWrapper>
+          <FooterWrapper>
+            <Footer />
+          </FooterWrapper>
         </AppWrapper>
       </Web3ReactManager>
     </ErrorBoundary>

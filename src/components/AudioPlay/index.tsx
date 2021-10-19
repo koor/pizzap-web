@@ -1,4 +1,4 @@
-import { Children, ReactNode, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components/macro'
 import { Play, Pause } from 'react-feather'
 
@@ -107,14 +107,7 @@ export function Audio({ src, status, setStatus }: { src: string; status: boolean
   }, [status])
 
   useEffect(() => {
-    audioDomRef.current.addEventListener('ended', () => {
-      setStatus()
-    })
-    return () => {
-      audioDomRef.current.removeEventListener('ended', () => {
-        setStatus()
-      })
-    }
+    audioDomRef.current.addEventListener('ended', setStatus)
   }, [audioDomRef.current])
   return (
     <audio src={src} ref={audioDomRef} preload={'auto'} controlsList="nodownload">

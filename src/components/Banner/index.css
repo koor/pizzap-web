@@ -1,0 +1,24 @@
+.mySwiper .swiper-slide {
+  opacity: 0.51;
+}
+.mySwiper .swiper-slide-prev,
+.mySwiper .swiper-slide-active,
+.mySwiper .swiper-slide-next {
+  opacity: unset;
+}
+
+.customSwiper {
+  padding-bottom: 50px;
+}
+
+.customSwiper .swiper-pagination .swiper-pagination-bullet-active {
+  background: #fc814c !important;
+  width: 13px;
+  height: 13px;
+}
+.customSwiper .swiper-pagination .swiper-pagination-bullet {
+  background: #353434;
+  opacity: 1;
+  width: 11px;
+  height: 11px;
+}

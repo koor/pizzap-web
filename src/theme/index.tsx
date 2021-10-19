@@ -49,6 +49,8 @@ function colors(darkMode: boolean): Colors {
     text5: darkMode ? '#2C2F36' : '#EDEEF2',
     text6: darkMode ? '#FC814C' : '#FC814C',
 
+    text7: darkMode ? '#FBEFEA' : '#FBEFEA',
+
     // backgrounds / greys
     bg0: darkMode ? '#191B1F' : '#FFF',
     bg1: darkMode ? '#212429' : '#F7F8FA',
@@ -59,6 +61,8 @@ function colors(darkMode: boolean): Colors {
     bg6: darkMode ? '#1A2028' : '#6C7284',
     // new
     bg7: darkMode ? '#392C2F' : '#392C2F',
+    bg8: darkMode ? '#000000' : '#000000',
+    bg9: darkMode ? '#1E1319' : '#1E1319',
 
     //specialty colors
     modalBG: darkMode ? 'rgba(0,0,0,.425)' : 'rgba(0,0,0,0.3)',
@@ -72,7 +76,8 @@ function colors(darkMode: boolean): Colors {
     primary5: darkMode ? '#153d6f70' : '#FDEAF1',
 
     primary6: darkMode ? 'rgba(252, 129, 76, 0.3)' : 'rgba(252, 129, 76, 0.3)',
-    primary7: darkMode ? 'rgba(252, 129, 76, 0.65)' : '',
+    primary7: darkMode ? 'rgba(252, 129, 76, 0.65)' : 'rgba(252, 129, 76, 0.65)',
+
     primary8: darkMode
       ? 'linear-gradient(180deg, #CB83FE 0%, #FD6625 100%)'
       : 'linear-gradient(180deg, #CB83FE 0%, #FD6625 100%)',
@@ -206,7 +211,7 @@ export const TYPE = {
 export const ThemedGlobalStyle = createGlobalStyle`
 html {
   color: ${({ theme }) => theme.text1};
-  background-color: ${({ theme }) => theme.bg0} !important;
+  background-color: ${({ theme }) => theme.bg8} !important;
 }
 
 a {

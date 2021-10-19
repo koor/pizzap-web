@@ -1,5 +1,5 @@
-import { useCallback, useRef, useState } from 'react'
-import styled from 'styled-components/macro'
+import { useCallback, useState } from 'react'
+import styled, { keyframes } from 'styled-components/macro'
 import { Audio } from 'components/AudioPlay'
 
 import lastBg from '../../assets/img/animation.svg'
@@ -11,23 +11,23 @@ const AnimationWrapper = styled.div`
   position: relative;
   margin: 50px 0;
 `
-const LastImgWrapper = styled.img<{ sports: boolean }>`
-  animation: play-bg infinite 20s linear;
-  animation-play-state: ${({ sports }) => (sports ? 'running' : 'paused')};
-  @keyframes play-bg {
+const rotate360 = keyframes`
     from {
       transform: rotate(0deg);
     }
     to {
       transform: rotate(360deg);
     }
-  }
+`
+const LastImgWrapper = styled.img<{ sports: boolean }>`
+  animation: ${rotate360} 10s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+  animation-play-state: ${({ sports }) => (sports ? 'running' : 'paused')};
 `
 const PlayWrapper = styled.div`
   width: 173px;
   height: 173px;
   position: absolute;
-  background: url(${play_bg});
+  background: url(${play_bg}) center center / cover;
   top: 0;
   bottom: 0;
   left: 0;
@@ -59,6 +59,8 @@ const First = styled.img`
 export default function PlayAnimation() {
   const [audioStatus, setAudioStatus] = useState(false)
   const changeAudio = useCallback(() => {
+    console.log('changeAudio')
+
     setAudioStatus(!audioStatus)
   }, [audioStatus])
 
