@@ -1,9 +1,8 @@
 import { Trans } from '@lingui/macro'
 import styled from 'styled-components/macro'
-import { CommItem, PictureItem, PictureSaleItem } from 'components/Commodity'
+import { CommItem } from 'components/Commodity'
 import { AutoColumn } from 'components/Column'
 import { Label, Checkbox } from '@rebass/forms'
-
 import OfferProduct from 'assets/img/item.png'
 import Music from 'assets/img/music.svg'
 import { useCallback, useState } from 'react'
@@ -15,7 +14,7 @@ const MarketWrapper = styled(AutoColumn)`
 `
 
 const Title = styled.h1`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   color: ${({ theme }) => theme.text6};
   padding-bottom: 11px;
@@ -45,7 +44,6 @@ const InfoBold = styled.span<{ color?: string | null }>`
 `
 
 const Wrapper = styled(AutoColumn)`
-  /* width: 800px; */
   margin-top: 0.625rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 28px 20px;
@@ -71,6 +69,20 @@ const CheckboxOption = styled(Label)`
   }
 `
 
+const OfferInfo = ({ item }: any) => {
+  return (
+    <DescWarpper>
+      <DescTitle>{item.name}</DescTitle>
+      <DescInfo>
+        <InfoBold>{item.audioName}</InfoBold>
+        <InfoBold>
+          <Trans>Creator: {item.author}</Trans>
+        </InfoBold>
+      </DescInfo>
+    </DescWarpper>
+  )
+}
+
 export default function Market() {
   const [checkeds, setCheckeds] = useState({
     audio: false,
@@ -80,20 +92,6 @@ export default function Market() {
   const [modalOpen, setModalOpen] = useState(false)
   const [proposalAction, setProposalAction] = useState(ProposalAction.TRANSFER_TOKEN)
 
-  const OfferInfo = ({ item }: any) => {
-    return (
-      <DescWarpper>
-        <DescTitle>{item.name}</DescTitle>
-        <DescInfo>
-          <InfoBold>{item.audioName}</InfoBold>
-          <InfoBold>
-            <Trans>Creator: {item.author}</Trans>
-          </InfoBold>
-        </DescInfo>
-      </DescWarpper>
-    )
-  }
-
   const changeChecked = useCallback(
     (item: { audio?: boolean; source?: boolean }) => {
       setCheckeds({ ...checkeds, ...item })
@@ -102,7 +100,6 @@ export default function Market() {
   )
 
   const handleActionSelectorClick = useCallback(() => {
-    console.log(1111)
     setModalOpen(true)
   }, [setModalOpen])
 
@@ -117,13 +114,15 @@ export default function Market() {
     setModalOpen(false)
   }, [setModalOpen])
 
+  console.log(checkeds)
+
   return (
     <MarketWrapper>
       <Title>Market</Title>
       <Header>
         <CheckboxWrapper>
-          <CheckboxOption>
-            <Checkbox checked={checkeds.audio} onChange={() => changeChecked({ audio: !checkeds.audio })} />
+          <CheckboxOption onChange={() => changeChecked({ audio: !checkeds.audio })}>
+            <Checkbox checked={checkeds.audio} />
             <Trans>Audio</Trans>
           </CheckboxOption>
           <CheckboxOption>

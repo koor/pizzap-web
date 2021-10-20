@@ -1,6 +1,7 @@
 // import ApeModeQueryParamReader from 'hooks/useApeModeQueryParamReader'
 import { Route, Switch } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { darken } from 'polished'
 // import GoogleAnalyticsReporter from '../components/analytics/GoogleAnalyticsReporter'
 
 import Web3ReactManager from '../components/Web3ReactManager'
@@ -12,11 +13,10 @@ import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 
 import Home from './Home'
 import Market from './Market'
-import Create from './Create'
+import Create from './CreateNft'
 import Forum from './Forum'
 import Personal from './Personal'
 import { RedirectPathToHomeOnly } from './Home/redirects'
-import { darken } from 'polished'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -65,8 +65,6 @@ const FooterWrapper = styled.div`
 // }
 
 function App() {
-  console.log(darken(0.69, '#FFFFFF'))
-
   return (
     <ErrorBoundary>
       {/* <Route component={GoogleAnalyticsReporter} /> */}

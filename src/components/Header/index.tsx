@@ -274,7 +274,7 @@ export default function Header() {
           <AccountElement active={!!account}>
             {account ? (
               <BalanceText style={{ flexShrink: 0, userSelect: 'none' }} pl="0.75rem" pr="0.5rem" fontWeight={500}>
-                <Trans>0 ETH</Trans>
+                <Trans>0 PI</Trans>
               </BalanceText>
             ) : null}
             <Web3Status />
