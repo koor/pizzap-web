@@ -13,7 +13,7 @@ import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 
 import Home from './Home'
 import Market from './Market'
-import Create from './CreateNft'
+import CreateNft from './CreateNft'
 import Forum from './Forum'
 import Personal from './Personal'
 import { RedirectPathToHomeOnly } from './Home/redirects'
@@ -79,7 +79,7 @@ function App() {
             <Switch>
               <Route exact strict path="/home" component={Home} />
               <Route exact strict path="/market" component={Market} />
-              <Route exact strict path="/create" component={Create} />
+              <Route exact strict path="/create" component={CreateNft} />
               <Route exact strict path="/forum" component={Forum} />
               <Route exact strict path="/personal" component={Personal} />
 

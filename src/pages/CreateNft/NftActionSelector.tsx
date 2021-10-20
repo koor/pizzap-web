@@ -10,8 +10,8 @@ import { MenuItem, PaddedColumn, Separator } from 'components/SearchModal/styled
 import { ButtonDropdown } from 'components/Button'
 
 export enum NftAction {
-  TRANSFER_TOKEN = 'Transfer Token',
-  APPROVE_TOKEN = 'Approve Token',
+  VOICE_ITEM = 'VOICE Name',
+  MODEL_ITEM = 'MODEL Name',
 }
 
 interface NftActionSelectorModalProps {
@@ -66,19 +66,19 @@ const NftActionSelectorContainer = styled.div`
 export const NftActionSelector = ({
   className,
   onClick,
-  NftAction,
+  nftAction,
 }: {
   className?: string
   onClick: () => void
-  NftAction: NftAction
+  nftAction: NftAction
 }) => {
   return (
     <NftActionSelectorFlex>
       <NftActionSelectorContainer className={className}>
         <ActionSelectorHeader>
-          <Trans>Proposed Action</Trans>
+          <Trans>Audio source selection*</Trans>
         </ActionSelectorHeader>
-        <ActionDropdown onClick={onClick}>{NftAction}</ActionDropdown>
+        <ActionDropdown onClick={onClick}>{nftAction}</ActionDropdown>
       </NftActionSelectorContainer>
     </NftActionSelectorFlex>
   )
@@ -86,8 +86,8 @@ export const NftActionSelector = ({
 
 export function NftActionSelectorModal({ isOpen, onDismiss, onNftActionSelect }: NftActionSelectorModalProps) {
   const handleNftActionSelect = useCallback(
-    (NftAction: NftAction) => {
-      onNftActionSelect(NftAction)
+    (nftAction: NftAction) => {
+      onNftActionSelect(nftAction)
       onDismiss()
     },
     [onDismiss, onNftActionSelect]
@@ -105,17 +105,17 @@ export function NftActionSelectorModal({ isOpen, onDismiss, onNftActionSelect }:
           </RowBetween>
         </PaddedColumn>
         <Separator />
-        <MenuItem onClick={() => handleNftActionSelect(NftAction.TRANSFER_TOKEN)}>
+        <MenuItem onClick={() => handleNftActionSelect(NftAction.VOICE_ITEM)}>
           <Column>
             <Text fontWeight={500}>
-              <Trans>Transfer Token</Trans>
+              <Trans>VOICE Name</Trans>
             </Text>
           </Column>
         </MenuItem>
-        <MenuItem onClick={() => handleNftActionSelect(NftAction.APPROVE_TOKEN)}>
+        <MenuItem onClick={() => handleNftActionSelect(NftAction.MODEL_ITEM)}>
           <Column>
             <Text fontWeight={500}>
-              <Trans>Approve Token</Trans>
+              <Trans>MODEL Name</Trans>
             </Text>
           </Column>
         </MenuItem>

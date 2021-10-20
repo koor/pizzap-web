@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useRef } from 'react'
+import { memo, useCallback, useRef } from 'react'
 import styled from 'styled-components/macro'
 
 const Input = styled.input<{ error?: boolean; fontSize?: string }>`
@@ -111,7 +111,7 @@ export const ResizingTextArea = memo(
     className?: string
     value: string
     onUserInput: (value: string) => void
-    placeholder: string
+    placeholder: string | undefined
     fontSize: string
   }) => {
     const inputRef = useRef<HTMLTextAreaElement>(document.createElement('textarea'))
@@ -127,7 +127,7 @@ export const ResizingTextArea = memo(
 
     return (
       <TextAreaInput
-        style={{ height: 'auto', minHeight: '500px' }}
+        style={{ height: 'auto', minHeight: '150px' }}
         className={className}
         autoComplete="off"
         autoCorrect="off"

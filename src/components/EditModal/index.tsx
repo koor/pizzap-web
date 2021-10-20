@@ -1,14 +1,13 @@
 import { t, Trans } from '@lingui/macro'
-import { ReactNode, useCallback, useState, useContext } from 'react'
+import { ReactNode, useState } from 'react'
 import { ButtonPrimary, ButtonLight } from 'components/Button'
 import Modal from 'components/Modal'
-import styled, { ThemeContext } from 'styled-components/macro'
+import styled from 'styled-components/macro'
 import { useWalletModalToggle } from 'state/application/hooks'
 import { useActiveWeb3React } from 'hooks/web3'
 import { ReactComponent as Close } from '../../assets/images/x.svg'
 import { AutoColumn } from 'components/Column'
-import { RowBetween } from 'components/Row'
-import { TYPE } from 'theme'
+import InputPanel from 'components/InputPanel'
 
 const CloseIcon = styled.div`
   position: absolute;
@@ -54,65 +53,6 @@ const ContentWrapper = styled.div`
 const FooterWrapper = styled.div`
   padding: 0 1rem 1rem 1rem;
 `
-
-const ContainerRow = styled.div<{ error: boolean }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 1.25rem;
-  border: 1px solid ${({ error, theme }) => (error ? theme.red1 : theme.bg2)};
-  transition: border-color 300ms ${({ error }) => (error ? 'step-end' : 'step-start')},
-    color 500ms ${({ error }) => (error ? 'step-end' : 'step-start')};
-  background-color: ${({ theme }) => theme.bg1};
-`
-
-const InputPanel = styled.div`
-  ${({ theme }) => theme.flexColumnNoWrap}
-  position: relative;
-  border-radius: 1.25rem;
-  background-color: ${({ theme }) => theme.bg1};
-  z-index: 1;
-  width: 100%;
-  margin-bottom: 20px;
-`
-
-const InputContainer = styled.div`
-  flex: 1;
-  padding: 1rem;
-`
-
-const Input = styled.input<{ error?: boolean }>`
-  font-size: 1.25rem;
-  outline: none;
-  border: none;
-  flex: 1 1 auto;
-  width: 0;
-  background-color: ${({ theme }) => theme.bg1};
-  transition: color 300ms ${({ error }) => (error ? 'step-end' : 'step-start')};
-  color: ${({ error, theme }) => (error ? theme.red1 : theme.text1)};
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 500;
-  width: 100%;
-  ::placeholder {
-    color: ${({ theme }) => theme.text4};
-  }
-  padding: 0px;
-  -webkit-appearance: textfield;
-
-  ::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-
-  ::placeholder {
-    color: ${({ theme }) => theme.text4};
-  }
-`
 const UpperSection = styled.div`
   position: relative;
 
@@ -148,75 +88,12 @@ export function WalletAttion({ account, children }: { account: string | null | u
   )
 }
 
-export function VailderInputPanel({
-  id,
-  className = 'recipient-email-input',
-  label,
-  placeholder,
-  value,
-  onChange,
-  require = false,
-}: {
-  id?: string
-  className?: string
-  label?: ReactNode
-  placeholder?: string
-  // the typed string value
-  value: string
-  // triggers whenever the typed value changes
-  onChange: (value: string) => void
-  require?: boolean
-}) {
-  const theme = useContext(ThemeContext)
-
-  const address = useEMAIL(value)
-
-  const handleInput = useCallback(
-    (event) => {
-      const input = event.target.value
-      const withoutSpaces = input.replace(/\s+/g, '')
-      onChange(withoutSpaces)
-    },
-    [onChange]
-  )
-
-  const error = require && Boolean(value.length > 0 && !address)
-  return (
-    <InputPanel id={id}>
-      <ContainerRow error={error}>
-        <InputContainer>
-          <AutoColumn gap="md">
-            <RowBetween>
-              <TYPE.black color={theme.text2} fontWeight={500} fontSize={14}>
-                {label ?? <Trans>Recipient</Trans>}
-              </TYPE.black>
-            </RowBetween>
-            <Input
-              className={className}
-              type="text"
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-              spellCheck="false"
-              placeholder={placeholder}
-              error={error}
-              pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"
-              onChange={handleInput}
-              value={value}
-            />
-          </AutoColumn>
-        </InputContainer>
-      </ContainerRow>
-    </InputPanel>
-  )
-}
-
 export default function EditModal() {
   const { account } = useActiveWeb3React()
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [userName, setUserName] = useState('')
-  const error = useEMAIL(email)
+  const error = true
   const toggleEditModal = () => {
     setIsOpen(false)
   }
@@ -234,15 +111,16 @@ export default function EditModal() {
         </HeaderRow>
         <ContentWrapper>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="start">
-            <VailderInputPanel placeholder={t`User Name`} label={'Name'} value={userName} onChange={setUserName} />
+            <InputPanel placeholder={t`User Name`} label={'Name'} value={userName} onChange={setUserName} />
           </AutoColumn>
           <AutoColumn gap="md" style={{ padding: '1rem', paddingTop: '0' }} justify="center">
-            <VailderInputPanel require placeholder={t`User Email`} label={'Email'} value={email} onChange={setEmail} />
-            {!error && (
-              <TYPE.error error={true}>
-                <Trans>Email Address has no available claim</Trans>
-              </TYPE.error>
-            )}
+            <InputPanel
+              placeholder={t`User Email`}
+              label={t`Email`}
+              value={email}
+              onChange={setEmail}
+              pattern={'^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$'}
+            />
           </AutoColumn>
         </ContentWrapper>
         <FooterWrapper>
@@ -267,13 +145,4 @@ export default function EditModal() {
       </Modal>
     </>
   )
-}
-
-function useEMAIL(nameOrAddress?: string | any) {
-  const reg = new RegExp('^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$')
-  if (!reg.test(nameOrAddress) && nameOrAddress) {
-    return false
-  } else {
-    return true
-  }
 }

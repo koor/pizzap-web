@@ -13,13 +13,8 @@ const MarketWrapper = styled(AutoColumn)`
   width: 100%;
 `
 
-<<<<<<< HEAD
 const Title = styled.h1`
   font-size: 1.5rem;
-=======
-const Title = styled.div`
-  font-size: 24px;
->>>>>>> 4b4665f4872ca8cf3aa9fac6267f9ffa3c851884
   font-weight: 600;
   color: ${({ theme }) => theme.text6};
   padding-bottom: 15px;
@@ -49,11 +44,7 @@ const InfoBold = styled.span<{ color?: string | null }>`
 `
 
 const Wrapper = styled(AutoColumn)`
-<<<<<<< HEAD
   margin-top: 0.625rem;
-=======
-  margin-top: 32px;
->>>>>>> 4b4665f4872ca8cf3aa9fac6267f9ffa3c851884
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 28px 20px;
 `

@@ -38,7 +38,7 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
   transition: background-position 0.1s, box-shadow 0.1s;
   background-blend-mode: hard-light;
   ${({ theme }) => theme.mediaWidth.upToLarge`
-    grid-template-columns: 48px 1fr 1fr;
+    grid-template-columns: 120px 1fr 1fr;
   `};
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
@@ -255,9 +255,11 @@ export default function Header() {
           <Trans>Market</Trans>
         </StyledNavLink>
         {chainId && chainId === SupportedChainId.MAINNET && (
-          <StyledNavLink id={`vote-nav-link`} to={'/create'}>
-            <Trans>Create</Trans>
-          </StyledNavLink>
+          <>
+            <StyledNavLink id={`vote-nav-link`} to={'/create'}>
+              <Trans>Create</Trans>
+            </StyledNavLink>
+          </>
         )}
         <StyledNavLink id={`swap-nav-link`} to={'/forum'}>
           <Trans>Forum</Trans>
