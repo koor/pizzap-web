@@ -73,6 +73,7 @@ const InputPanel = styled.div`
   background-color: ${({ theme }) => theme.bg1};
   z-index: 1;
   width: 100%;
+  margin-bottom: 20px;
 `
 
 const InputContainer = styled.div`

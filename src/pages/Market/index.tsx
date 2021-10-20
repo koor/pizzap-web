@@ -14,11 +14,11 @@ const MarketWrapper = styled(AutoColumn)`
   width: 100%;
 `
 
-const Title = styled.h1`
+const Title = styled.div`
   font-size: 24px;
   font-weight: 600;
   color: ${({ theme }) => theme.text6};
-  padding-bottom: 11px;
+  padding-bottom: 15px;
   border-bottom: 1px solid ${({ theme }) => darken(0.69, theme.text1)};
 `
 
@@ -45,8 +45,7 @@ const InfoBold = styled.span<{ color?: string | null }>`
 `
 
 const Wrapper = styled(AutoColumn)`
-  /* width: 800px; */
-  margin-top: 0.625rem;
+  margin-top: 32px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 28px 20px;
 `
@@ -54,6 +53,7 @@ const Wrapper = styled(AutoColumn)`
 const Header = styled.div`
   ${({ theme }) => theme.flexRowNoWrap}
   justify-content: space-between;
+  margin-top: 15px;
 `
 
 const CheckboxWrapper = styled.div`
