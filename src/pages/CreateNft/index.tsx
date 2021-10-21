@@ -163,7 +163,7 @@ export default function CreateNft() {
   }
 
   return (
-    <AppBody {...{ maxWidth: '800px' }}>
+    <AppBody {...{ maxWidth: '900px' }}>
       <CreateNftWrapper>
         <BlueCard>
           <AutoColumn gap="10px">

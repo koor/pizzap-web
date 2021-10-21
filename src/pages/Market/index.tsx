@@ -8,9 +8,12 @@ import Music from 'assets/img/music.svg'
 import { useCallback, useState } from 'react'
 import { ProposalAction, ProposalActionSelector, ProposalActionSelectorModal } from './ActionSelector'
 import { darken } from 'polished'
+import { createHashHistory } from 'history'
+import InfiniteScroll from 'react-infinite-scroll-component'
 
 const MarketWrapper = styled(AutoColumn)`
   width: 100%;
+  max-width: 900px;
 `
 
 const Title = styled.h1`
@@ -19,6 +22,7 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.text6};
   padding-bottom: 15px;
   border-bottom: 1px solid ${({ theme }) => darken(0.69, theme.text1)};
+  margin: 0;
 `
 
 const DescWarpper = styled.div`
@@ -47,12 +51,13 @@ const Wrapper = styled(AutoColumn)`
   margin-top: 0.625rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 28px 20px;
+  height: auto;
 `
 
-const Header = styled.div`
+const HeaderWrapper = styled.div`
   ${({ theme }) => theme.flexRowNoWrap}
   justify-content: space-between;
-  margin-top: 15px;
+  margin: 15px 0 30px 0;
 `
 
 const CheckboxWrapper = styled.div`
@@ -89,7 +94,8 @@ export default function Market() {
     audio: false,
     source: false,
   })
-
+  const [items, setItems] = useState(Array.from({ length: 4 }))
+  const [hasMore, setHasMore] = useState(true)
   const [modalOpen, setModalOpen] = useState(false)
   const [proposalAction, setProposalAction] = useState(ProposalAction.TRANSFER_TOKEN)
 
@@ -115,15 +121,24 @@ export default function Market() {
     setModalOpen(false)
   }, [setModalOpen])
 
-  console.log(checkeds)
+  const fetchMoreData = () => {
+    if (items.length >= 100) {
+      setHasMore(false)
+      return
+    }
+
+    setTimeout(() => {
+      setItems(items.concat(Array.from({ length: 20 })))
+    }, 500)
+  }
 
   return (
     <MarketWrapper>
       <Title>Market</Title>
-      <Header>
+      <HeaderWrapper>
         <CheckboxWrapper>
-          <CheckboxOption onChange={() => changeChecked({ audio: !checkeds.audio })}>
-            <Checkbox checked={checkeds.audio} />
+          <CheckboxOption>
+            <Checkbox checked={checkeds.audio} onChange={() => changeChecked({ audio: !checkeds.audio })} />
             <Trans>Audio</Trans>
           </CheckboxOption>
           <CheckboxOption>
@@ -132,54 +147,38 @@ export default function Market() {
           </CheckboxOption>
         </CheckboxWrapper>
         <ProposalActionSelector onClick={handleActionSelectorClick} proposalAction={proposalAction} />
-      </Header>
-      <Wrapper>
-        <CommItem
-          bg={OfferProduct}
-          music={Music}
-          onClick={() => {
-            console.log(11)
-          }}
-        >
-          <OfferInfo
-            item={{
-              name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
-              audioName: 'Audio Name1',
-              author: 'Rowen',
-            }}
-          />
-        </CommItem>
-        <CommItem
-          bg={OfferProduct}
-          music={Music}
-          onClick={() => {
-            console.log(11)
-          }}
-        >
-          <OfferInfo
-            item={{
-              name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
-              audioName: 'Audio Name1',
-              author: 'Rowen',
-            }}
-          />
-        </CommItem>
-        <CommItem
-          bg={OfferProduct}
-          music={Music}
-          onClick={() => {
-            console.log(11)
-          }}
-        >
-          <OfferInfo
-            item={{
-              name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
-              audioName: 'Audio Name1',
-              author: 'Rowen',
-            }}
-          />
-        </CommItem>
-      </Wrapper>
+      </HeaderWrapper>
+      <InfiniteScroll
+        dataLength={items.length}
+        next={fetchMoreData}
+        hasMore={hasMore}
+        loader={<p style={{ textAlign: 'center' }}>Loading...</p>}
+        height={600}
+        endMessage={
+          <p style={{ textAlign: 'center' }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        }
+      >
+        <Wrapper>
+          {items.map((item, index) => (
+            <CommItem
+              bg={OfferProduct}
+              music={Music}
+              key={index}
+              onClick={() => createHashHistory().push(`/market/${index}`)}
+            >
+              <OfferInfo
+                item={{
+                  name: 'After a sold-out Art Blocks drop, Reben is back with an exclusive series',
+                  audioName: 'Audio Name' + index,
+                  author: 'Rowen',
+                }}
+              />
+            </CommItem>
+          ))}
+        </Wrapper>
+      </InfiniteScroll>
       <ProposalActionSelectorModal
         isOpen={modalOpen}
         onDismiss={handleDismissActionSelector}

@@ -259,6 +259,9 @@ export default function Header() {
             <StyledNavLink id={`vote-nav-link`} to={'/create'}>
               <Trans>Create</Trans>
             </StyledNavLink>
+            <StyledNavLink id={`vote-nav-link`} to={'/vote'}>
+              <Trans>Vote</Trans>
+            </StyledNavLink>
           </>
         )}
         <StyledNavLink id={`swap-nav-link`} to={'/forum'}>

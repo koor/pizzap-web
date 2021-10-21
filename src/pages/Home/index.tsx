@@ -211,6 +211,12 @@ const AdvertiseWarpper = styled.div`
 const AdvertiseText = styled.span`
   font-size: 21px;
   color: ${({ theme }) => theme.text7};
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; //（希望显示N行-webkit-line-clamp的变为N）
+  -webkit-box-orient: vertical;
 `
 const AdvertiseButton = styled(ButtonExplore)`
   width: 38.36%;
@@ -338,11 +344,10 @@ const OfferingWrapper = styled.div`
 const OfferingItems = styled(ArtItems)`
   margin-top: 3.125rem;
   background: unset;
-  flex: 1;
 `
 
 const OfferingItemsLeft = styled.div`
-  flex: 0.9;
+  width: 45%;
   margin-left: 20px;
   margin-right: 5px;
   border-left: 2px dashed ${({ theme }) => theme.bg4};
@@ -351,9 +356,8 @@ const OfferingItemsLeft = styled.div`
 
 const OfferingItemsRight = styled.div`
   display: flex;
-  margin: 0 40px;
-  flex: 1.1;
-  width: 482px;
+  margin-left: 70px;
+  width: 55%;
 `
 const OfferingItemsRow = styled.div<{ active: boolean }>`
   overflow: hidden;
@@ -379,7 +383,7 @@ const OfferingItemsRow = styled.div<{ active: boolean }>`
 `
 
 const OfferingItemsImg = styled.img`
-  width: 482px;
+  /* width: 482px; */
   height: 302px;
 `
 export default function Home() {
