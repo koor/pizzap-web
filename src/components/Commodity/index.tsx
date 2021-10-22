@@ -141,8 +141,8 @@ export function PictureSaleItem({
 }) {
   return (
     <>
-      <CommodityWrapper onClick={onClick} style={style}>
-        <PictureOption>
+      <CommodityWrapper onClick={onClick}>
+        <PictureOption style={style}>
           <PictureImgWrapper>
             <PictureSaleImg src={url} alt={'Photo'} />
           </PictureImgWrapper>
