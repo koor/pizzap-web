@@ -1,6 +1,6 @@
 import { ColumnCenter } from 'components/Column'
 import { ReactNode } from 'react'
-import styled from 'styled-components/macro'
+import styled, { DefaultTheme } from 'styled-components/macro'
 import Play_bg from '../../assets/img/play_bg.svg'
 import Play from '../../assets/img/play.svg'
 // import Pause from 'assets/img/pause.svg'
@@ -132,14 +132,16 @@ export function PictureSaleItem({
   children,
   url,
   onClick,
+  style,
 }: {
   children?: ReactNode
   url?: string | undefined
   onClick: () => void
+  style?: any
 }) {
   return (
     <>
-      <CommodityWrapper onClick={onClick}>
+      <CommodityWrapper onClick={onClick} style={style}>
         <PictureOption>
           <PictureImgWrapper>
             <PictureSaleImg src={url} alt={'Photo'} />
