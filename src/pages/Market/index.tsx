@@ -73,6 +73,10 @@ const CheckboxOption = styled(Label)`
   & > div > svg {
     color: ${({ theme }) => theme.text6};
   }
+
+  & > div > input:focus ~ svg {
+    background-color: unset;
+  }
 `
 
 const OfferInfo = ({ item }: any) => {
