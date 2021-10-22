@@ -38,7 +38,7 @@ export const Tab = styled(TabComponent)`
     -webkit-appearance: none;
     -moz-appearance: none;
     &[data-selected] {
-      color: ${({ theme }) => theme.primaryText1};
+      color: ${({ theme }) => theme.text6};
       border-bottom-color: currentColor;
       border-bottom-width: 2px;
     }
