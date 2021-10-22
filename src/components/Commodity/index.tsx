@@ -1,5 +1,5 @@
 import { ColumnCenter } from 'components/Column'
-import { ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import styled, { DefaultTheme } from 'styled-components/macro'
 import Play_bg from '../../assets/img/play_bg.svg'
 import Play from '../../assets/img/play.svg'
@@ -62,17 +62,20 @@ export function CommItem({
   audio,
   music,
   onClick,
+  style,
 }: {
   children?: ReactNode
   bg?: string | undefined
   audio?: string | undefined
   music?: string | undefined
   onClick: () => void
+
+  style?: CSSProperties
 }) {
   return (
     <>
       <CommodityWrapper onClick={onClick}>
-        <AudioOption>
+        <AudioOption style={style}>
           <AudioItem style={{ background: `url(${bg}) center center / cover` }}>
             <img src={music} alt={'Music'} />
             <PlayWrapper>
@@ -132,17 +135,15 @@ export function PictureSaleItem({
   children,
   url,
   onClick,
-  style,
 }: {
   children?: ReactNode
   url?: string | undefined
   onClick: () => void
-  style?: any
 }) {
   return (
     <>
       <CommodityWrapper onClick={onClick}>
-        <PictureOption style={style}>
+        <PictureOption>
           <PictureImgWrapper>
             <PictureSaleImg src={url} alt={'Photo'} />
           </PictureImgWrapper>
