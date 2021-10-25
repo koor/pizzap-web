@@ -10,6 +10,8 @@ const CommodityWrapper = styled(ColumnCenter)`
   background-color: ${({ theme }) => theme.bg7};
   border-radius: 4px;
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.16);
+
+  height: 100%;
   :hover,
   :focus {
     cursor: pointer;
@@ -19,11 +21,12 @@ const CommodityWrapper = styled(ColumnCenter)`
 const AudioOption = styled.div`
   width: 100%;
   padding: 16px 13px 10px 13px;
+  height: 100%;
 `
 const AudioItem = styled.div`
   position: relative;
   width: 100%;
-  height: 262px;
+  height: 100%;
   & > img {
     position: absolute;
     left: 0;

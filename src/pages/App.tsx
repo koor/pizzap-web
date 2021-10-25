@@ -15,6 +15,7 @@ import Home from './Home'
 import Market from './Market'
 import ProductDetails from './Market/ProductDetail'
 import CreateNft from './CreateNft'
+import Vote from './Vote'
 import Forum from './Forum'
 import Personal from './Personal'
 import { RedirectPathToHomeOnly } from './Home/redirects'
@@ -84,6 +85,7 @@ function App() {
               <Route exact strict path="/market/:productIndex" component={ProductDetails} />
 
               <Route exact strict path="/create" component={CreateNft} />
+              <Route exact strict path="/vote" component={Vote} />
               <Route exact strict path="/forum" component={Forum} />
               <Route exact strict path="/personal" component={Personal} />
 

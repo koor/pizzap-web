@@ -341,7 +341,16 @@ export function ButtonExplore({ disabled = false, children, ...rest }: { disable
     </PrimaryButton>
   )
 }
-
+export function ExploreButton({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
+  return (
+    <ButtonPrimary {...rest} disabled={disabled}>
+      <RowBetween>
+        <div style={{ display: 'flex', alignItems: 'center' }}>{children}</div>
+        <ArrowRight size={24} color={'#FC814C'} strokeWidth={3} />
+      </RowBetween>
+    </ButtonPrimary>
+  )
+}
 export function ButtonDropdown({ disabled = false, children, ...rest }: { disabled?: boolean } & ButtonProps) {
   return (
     <ButtonPrimary {...rest} disabled={disabled}>

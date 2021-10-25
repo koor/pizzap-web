@@ -14,6 +14,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 const MarketWrapper = styled(AutoColumn)`
   width: 100%;
   max-width: 900px;
+  padding: 30px 16px 0px;
 `
 
 const Title = styled.h1`
@@ -171,6 +172,7 @@ export default function Market() {
               music={Music}
               key={index}
               onClick={() => createHashHistory().push(`/market/${index}`)}
+              style={{ height: 300 }}
             >
               <OfferInfo
                 item={{

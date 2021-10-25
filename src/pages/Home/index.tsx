@@ -596,6 +596,7 @@ export default function Home() {
                       onClick={() => {
                         setstate(!state)
                       }}
+                      style={{ height: 300 }}
                     >
                       <OfferInfo item={item} />
                     </CommItem>
@@ -641,6 +642,7 @@ export default function Home() {
                       onClick={() => {
                         setstate(!state)
                       }}
+                      style={{ height: 300 }}
                     >
                       <VoiceInfo item={item} />
                     </CommItem>

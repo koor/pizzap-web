@@ -88,6 +88,9 @@ const FooterText = styled.span`
 //     color: ${({ theme }) => darken(0.1, theme.text1)};
 //   }
 // `
+const Copyright = styled.p`
+  color: ${({ theme }) => darken(0.591, theme.text1)};
+`
 export default function Footer() {
   const { account, chainId } = useActiveWeb3React()
   return (
@@ -112,6 +115,9 @@ export default function Footer() {
           <Trans>Forum</Trans>
         </StyledNavLink>
       </FooterLinks> */}
+      <Copyright>
+        <Trans>@2021 Pizzap. All Right Reserved.</Trans>
+      </Copyright>
     </FooterFrame>
   )
 }

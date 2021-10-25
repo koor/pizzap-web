@@ -13,6 +13,7 @@ import Music_white from 'assets/img/music_white.svg'
 const DetailWrapper = styled(AutoColumn)`
   width: 100%;
   max-width: 900px;
+  padding: 30px 16px 0px;
 `
 
 const ProductWrapper = styled(AutoColumn)`
