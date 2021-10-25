@@ -133,6 +133,81 @@ const VoteText = styled.span<{ size?: number; weight?: number; color?: any }>`
   font-weight: ${({ weight }) => (weight ? weight : 500)};
   color: ${({ theme, color }) => (color ? color : theme.text1)};
 `
+
+/*Svg-Func*/
+const WaveHead = () => (
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" fill="currentColor" viewBox="0 0 560 20">
+    <path d="M420,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C514,6.5,518,4.7,528.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H420z"></path>
+    <path d="M420,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C326,6.5,322,4.7,311.5,2.7C304.3,1.4,293.6-0.1,280,0c0,0,0,0,0,0v20H420z"></path>
+    <path d="M140,20c21.5-0.4,38.8-2.5,51.1-4.5c13.4-2.2,26.5-5.2,27.3-5.4C234,6.5,238,4.7,248.5,2.7c7.1-1.3,17.9-2.8,31.5-2.7c0,0,0,0,0,0v20H140z"></path>
+    <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
+  </svg>
+)
+const DividedLine = styled.div.attrs((props: { label: string; height: number }) => ({
+  label: props.label,
+  height: props.height <= 100 && props.height >= 0 ? props.height : 50,
+}))`
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: ${({ height }) => `${height}%`};
+  right: 0;
+  background: #000000;
+  color: #ffffff;
+  font-size: 12px;
+  z-index: 5;
+  &::after {
+    content: ${({ label }) => `"${label || ''}"`};
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(120%, -50%);
+  }
+`
+//WaterWaves
+const WaveBox = styled.div`
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`
+const Waves = styled.div.attrs((props: { per: number; isActive: boolean }) => ({
+  per: props.per <= 100 && props.per >= 0 ? props.per : 50,
+  isActive: props.isActive || false,
+}))`
+  position: absolute;
+  background: ${({ isActive }) => (isActive ? 'linear-gradient(to top, #dd3447, #cc31e0, #d442b7)' : '#666')};
+  bottom: 0;
+  height: ${({ per }) => `${per}%`};
+  width: 100%;
+
+  svg {
+    position: absolute;
+    top: 1px;
+    right: 0;
+    width: 200%;
+    color: #666666;
+    transform: translate(0, -100%);
+    &:nth-child(1) {
+      color: ${({ isActive }) => (isActive ? '#d442b7' : '#666')};
+      z-index: 2;
+      animation: wave-back 0.7s infinite linear;
+    }
+    &:nth-child(2) {
+      color: ${({ isActive }) => (isActive ? '#cc31e0' : '#666')};
+      z-index: 1;
+      opacity: 0.8;
+      animation: wave-back 1.4s infinite linear;
+    }
+  }
+
+  @keyframes wave-back {
+    100% {
+      transform: translate(50%, -100%);
+    }
+  }
+`
+
 export default function IVO() {
   const theme = useContext(ThemeContext)
   return (
@@ -180,6 +255,16 @@ export default function IVO() {
           </PoolItem>
           <PoolItem>
             <ProgressWrapper>
+              <WaveBox>
+                <Waves per={20}>
+                  <WaveHead />
+                  <WaveHead />
+                </Waves>
+                <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
+                  100,000,000 PNFT FUNDED
+                </VoteText>
+              </WaveBox>
+              <DividedLine label="Min" height={50} />
               <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
                 100,000,000 PNFT FUNDED
               </VoteText>
@@ -231,6 +316,16 @@ export default function IVO() {
           </PoolItem>
           <PoolItem>
             <ProgressWrapper>
+              <WaveBox>
+                <Waves per={60} isActive>
+                  <WaveHead />
+                  <WaveHead />
+                </Waves>
+                <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
+                  100,000,000 PNFT FUNDED
+                </VoteText>
+              </WaveBox>
+              <DividedLine label="Min" height={50} />
               <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
                 100,000,000 PNFT FUNDED
               </VoteText>
