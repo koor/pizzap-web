@@ -107,6 +107,7 @@ const IvoButtonText = styled.span`
 `
 const ProgressWrapper = styled.div`
   position: relative;
+  width: 100%;
   height: 100%;
   background: ${transparentize(0.9, '#fccdb9')};
   ${({ theme }) => theme.flexColumnNoWrap}
@@ -126,6 +127,7 @@ const Max = styled.div`
 const Min = styled.div<{ height: number }>`
   border-top: 1px solid #1a1a1a;
   height: ${({ height }) => (height ? height : 50) + '%'};
+  z-index: 2;
 `
 
 const VoteText = styled.span<{ size?: number; weight?: number; color?: any }>`
@@ -143,47 +145,20 @@ const WaveHead = () => (
     <path d="M140,20c-21.5-0.4-38.8-2.5-51.1-4.5c-13.4-2.2-26.5-5.2-27.3-5.4C46,6.5,42,4.7,31.5,2.7C24.3,1.4,13.6-0.1,0,0c0,0,0,0,0,0l0,20H140z"></path>
   </svg>
 )
-const DividedLine = styled.div.attrs((props: { label: string; height: number }) => ({
-  label: props.label,
-  height: props.height <= 100 && props.height >= 0 ? props.height : 50,
-}))`
+const Waves = styled.div<{ height: number; isActive?: boolean }>`
   position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: ${({ height }) => `${height}%`};
-  right: 0;
-  background: #000000;
-  color: #ffffff;
-  font-size: 12px;
-  z-index: 5;
-  &::after {
-    content: ${({ label }) => `"${label || ''}"`};
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(120%, -50%);
-  }
-`
-//WaterWaves
-const WaveBox = styled.div`
-  position: absolute;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-`
-const Waves = styled.div.attrs((props: { per: number; isActive: boolean }) => ({
-  per: props.per <= 100 && props.per >= 0 ? props.per : 50,
-  isActive: props.isActive || false,
-}))`
-  position: absolute;
-  background: ${({ isActive }) => (isActive ? 'linear-gradient(to top, #dd3447, #cc31e0, #d442b7)' : '#666')};
+  background: ${({ isActive }) =>
+      isActive ? 'linear-gradient(to top, #dd3447, #cc31e0, #d442b7)' : 'linear-gradient(to top, #666, #666)'}
+    space;
   bottom: 0;
-  height: ${({ per }) => `${per}%`};
+  height: ${({ height }) => (height ? height : 0) + '%'};
   width: 100%;
-
+  overflow-x: clip;
+  background-size: 100% calc(100% - 9.78px);
+  background-position: bottom;
   svg {
     position: absolute;
-    top: 1px;
+    top: 11px;
     right: 0;
     width: 200%;
     color: #666666;
@@ -255,26 +230,20 @@ export default function IVO() {
           </PoolItem>
           <PoolItem>
             <ProgressWrapper>
-              <WaveBox>
-                <Waves per={20}>
-                  <WaveHead />
-                  <WaveHead />
-                </Waves>
-                <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
-                  100,000,000 PNFT FUNDED
-                </VoteText>
-              </WaveBox>
-              <DividedLine label="Min" height={50} />
               <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
                 100,000,000 PNFT FUNDED
               </VoteText>
               <Max></Max>
-              <Min height={40}></Min>
-              <VoteText size={14} style={{ position: 'absolute', bottom: 14, textAlign: 'center' }}>
-                200,000 PNFT FUNDED
+              <Min height={35}></Min>
+              <VoteText size={14} style={{ position: 'absolute', bottom: 14, textAlign: 'center', zIndex: 3 }}>
+                100,000,000 PNFT FUNDED
               </VoteText>
+              <Waves height={20} isActive={true}>
+                <WaveHead />
+                <WaveHead />
+              </Waves>
             </ProgressWrapper>
-            <ProgressTextWrapper height={40 + 3}>
+            <ProgressTextWrapper height={35 + 3}>
               <VoteText size={10}>
                 <Trans>min</Trans>
               </VoteText>
@@ -316,126 +285,23 @@ export default function IVO() {
           </PoolItem>
           <PoolItem>
             <ProgressWrapper>
-              <WaveBox>
-                <Waves per={60} isActive>
-                  <WaveHead />
-                  <WaveHead />
-                </Waves>
-                <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
-                  100,000,000 PNFT FUNDED
-                </VoteText>
-              </WaveBox>
-              <DividedLine label="Min" height={50} />
-              <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
+              <VoteText
+                size={14}
+                color={theme.text6}
+                style={{ position: 'absolute', top: 14, textAlign: 'center', zIndex: 3 }}
+              >
                 100,000,000 PNFT FUNDED
               </VoteText>
               <Max></Max>
               <Min height={40}></Min>
-              <VoteText size={14} style={{ position: 'absolute', bottom: 14, textAlign: 'center' }}>
+              <VoteText size={14} style={{ position: 'absolute', bottom: 14, textAlign: 'center', zIndex: 3 }}>
                 200,000 PNFT FUNDED
               </VoteText>
-            </ProgressWrapper>
-            <ProgressTextWrapper height={40 + 3}>
-              <VoteText size={10}>
-                <Trans>min</Trans>
-              </VoteText>
-            </ProgressTextWrapper>
-          </PoolItem>
-        </PoolItemWrapper>
-        <PoolItemWrapper>
-          <PoolItem>
-            <ItemTitle>
-              <TitleIcon />
-              <VoteText size={16} weight={600}>
-                <Trans>Pool Name</Trans>
-              </VoteText>
-            </ItemTitle>
-            <GoalWrapper>
-              <VoteText size={12} color={darken(0.64, theme.text1)}>
-                <Trans>Funding Goal</Trans>
-              </VoteText>
-              <VoteText size={14}>
-                <Trans>Min: 100,000 PNFT</Trans>
-              </VoteText>
-              <VoteText size={14}>
-                <Trans>Max: 100,000,000 PNFT</Trans>
-              </VoteText>
-            </GoalWrapper>
-            <CountdownWrapper>
-              <VoteText size={12} color={darken(0.64, theme.text1)}>
-                <Trans>Ends in</Trans>
-              </VoteText>
-              <VoteText size={14}>
-                <Trans>99 days 12 hours 12 mins</Trans>
-              </VoteText>
-            </CountdownWrapper>
-            <IvoButton>
-              <IvoButtonText>
-                <Trans>IVO NOW</Trans>
-              </IvoButtonText>
-            </IvoButton>
-          </PoolItem>
-          <PoolItem>
-            <ProgressWrapper>
-              <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
-                100,000,000 PNFT FUNDED
-              </VoteText>
-              <Max></Max>
-              <Min height={10}></Min>
-              <VoteText size={14} style={{ position: 'absolute', bottom: 14, textAlign: 'center' }}>
-                200,000 PNFT FUNDED
-              </VoteText>
-            </ProgressWrapper>
-            <ProgressTextWrapper height={10 + 3}>
-              <VoteText size={10}>
-                <Trans>min</Trans>
-              </VoteText>
-            </ProgressTextWrapper>
-          </PoolItem>
-        </PoolItemWrapper>
-        <PoolItemWrapper>
-          <PoolItem>
-            <ItemTitle>
-              <TitleIcon />
-              <VoteText size={16} weight={600}>
-                <Trans>Pool Name</Trans>
-              </VoteText>
-            </ItemTitle>
-            <GoalWrapper>
-              <VoteText size={12} color={darken(0.64, theme.text1)}>
-                <Trans>Funding Goal</Trans>
-              </VoteText>
-              <VoteText size={14}>
-                <Trans>Min: 100,000 PNFT</Trans>
-              </VoteText>
-              <VoteText size={14}>
-                <Trans>Max: 100,000,000 PNFT</Trans>
-              </VoteText>
-            </GoalWrapper>
-            <CountdownWrapper>
-              <VoteText size={12} color={darken(0.64, theme.text1)}>
-                <Trans>Ends in</Trans>
-              </VoteText>
-              <VoteText size={14}>
-                <Trans>99 days 12 hours 12 mins</Trans>
-              </VoteText>
-            </CountdownWrapper>
-            <IvoButton>
-              <IvoButtonText>
-                <Trans>IVO NOW</Trans>
-              </IvoButtonText>
-            </IvoButton>
-          </PoolItem>
-          <PoolItem>
-            <ProgressWrapper>
-              <VoteText size={14} color={theme.text6} style={{ position: 'absolute', top: 14, textAlign: 'center' }}>
-                100,000,000 PNFT FUNDED
-              </VoteText>
-              <Max></Max>
-              <Min height={40}></Min>
-              <VoteText size={14} style={{ position: 'absolute', bottom: 14, textAlign: 'center' }}>
-                200,000 PNFT FUNDED
-              </VoteText>
+
+              <Waves height={20} isActive={false}>
+                <WaveHead />
+                <WaveHead />
+              </Waves>
             </ProgressWrapper>
             <ProgressTextWrapper height={40 + 3}>
               <VoteText size={10}>
