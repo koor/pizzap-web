@@ -18,6 +18,7 @@ import CreateNft from './CreateNft'
 import Vote from './Vote'
 import Forum from './Forum'
 import Personal from './Personal'
+import Portfolio from './Portfolio'
 import { RedirectPathToHomeOnly } from './Home/redirects'
 
 const AppWrapper = styled.div`
@@ -88,6 +89,7 @@ function App() {
               <Route exact strict path="/vote" component={Vote} />
               <Route exact strict path="/forum" component={Forum} />
               <Route exact strict path="/personal" component={Personal} />
+              <Route exact strict path="/portfolio" component={Portfolio} />
 
               <Route component={RedirectPathToHomeOnly} />
             </Switch>
