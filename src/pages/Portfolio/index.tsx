@@ -116,6 +116,7 @@ const BtnIcon = styled.div`
 
   width: 2.38rem;
   height: 2.38rem;
+  overflow: hidden;
 
   border: 1px solid transparent;
   border-radius: 0.25rem;
