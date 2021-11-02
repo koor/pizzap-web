@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { ThemeContext } from 'styled-components/macro'
 import { Text } from 'rebass'
 import { ExternalLink, TYPE } from 'theme'
-import { ButtonPrimary } from 'components/Button'
+import { ButtonPrimary, PrimaryButton } from 'components/Button'
 import { AutoColumn } from 'components/Column'
 import Modal from 'components/Modal'
 import { LoadingView, SubmittedView } from 'components/ModalViews'
@@ -10,7 +10,7 @@ import { ExplorerDataType, getExplorerLink } from 'utils/getExplorerLink'
 import { Link } from 'react-router-dom'
 import { Trans } from '@lingui/macro'
 
-export const ProposalSubmissionModal = ({
+const TransactionSubmissionModal = ({
   isOpen,
   hash,
   onDismiss,
@@ -44,7 +44,7 @@ export const ProposalSubmissionModal = ({
                 </Text>
               </ExternalLink>
             )}
-            <ButtonPrimary as={Link} to="/vote" onClick={onDismiss} style={{ margin: '20px 0 0 0' }}>
+            <ButtonPrimary as={Link} to="/vote" onClick={onDismiss} style={{ margin: '20px 0 0 0', border: 'unset' }}>
               <Text fontWeight={500} fontSize={20}>
                 <Trans>Return</Trans>
               </Text>
@@ -55,3 +55,4 @@ export const ProposalSubmissionModal = ({
     </Modal>
   )
 }
+export default TransactionSubmissionModal

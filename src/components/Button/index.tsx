@@ -85,25 +85,28 @@ export const PrimaryButton = styled(Base)`
     background: ${({ theme }) => theme.primary8};
   }
   &:disabled {
-    background-color: ${({ theme, altDisabledStyle, disabled }) =>
-      altDisabledStyle ? (disabled ? theme.primary1 : theme.bg2) : theme.primary6};
+    background: ${({ theme, altDisabledStyle, disabled }) =>
+      altDisabledStyle
+        ? disabled
+          ? 'linear-gradient(180deg, #9F9F9F 0%, #6E6E6E 56%, #565555 100%)'
+          : theme.bg2
+        : 'linear-gradient(180deg, #9F9F9F 0%, #6E6E6E 56%, #565555 100%)'};
     color: ${({ theme }) => theme.text2};
     cursor: auto;
     box-shadow: none;
-    border: 1px solid transparent;
     outline: none;
   }
 `
 
 export const ButtonPrimary = styled(Base)`
-  background-color: ${({ theme }) => theme.primary6};
+  background-color: ${({ theme }) => theme.primary1};
   color: white;
   &:focus {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.primary1)};
     background-color: ${({ theme }) => darken(0.05, theme.primary1)};
   }
   &:hover {
-    background-color: ${({ theme }) => darken(0.05, theme.primary7)};
+    background-color: ${({ theme }) => darken(0.05, theme.primary1)};
   }
   &:active {
     box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.primary1)};

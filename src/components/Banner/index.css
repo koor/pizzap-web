@@ -1,12 +1,3 @@
-.mySwiper .swiper-slide {
-  opacity: 0.51;
-}
-.mySwiper .swiper-slide-prev,
-.mySwiper .swiper-slide-active,
-.mySwiper .swiper-slide-next {
-  opacity: unset;
-}
-
 .customSwiper {
   padding-bottom: 50px;
 }

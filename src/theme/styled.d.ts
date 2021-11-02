@@ -30,6 +30,9 @@ export interface Colors {
   bg9: Color
 
   modalBG: Color
+  // new
+  modalShellBG: Color
+
   advancedBG: Color
 
   //blues

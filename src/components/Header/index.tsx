@@ -7,8 +7,6 @@ import { NavLink } from 'react-router-dom'
 import { Text } from 'rebass'
 import { useDarkModeManager } from 'state/user/hooks'
 import styled from 'styled-components/macro'
-import LogoPink from '../../assets/svg/logo_pink.svg'
-import LogoDark from '../../assets/svg/logo_white.svg'
 import { useActiveWeb3React } from '../../hooks/web3'
 import { ExternalLink } from '../../theme'
 import Menu from '../Menu'
@@ -16,6 +14,10 @@ import Modal from '../Modal'
 import Row from '../Row'
 import Web3Status from '../Web3Status'
 import NetworkCard from './NetworkCard'
+
+import LogoPink from '../../assets/svg/logo_pink.svg'
+import LogoDark from '../../assets/svg/logo_white.svg'
+import { isMobile } from 'react-device-detect'
 
 const HeaderFrame = styled.div<{ showBackground: boolean }>`
   display: grid;
@@ -48,7 +50,7 @@ const HeaderFrame = styled.div<{ showBackground: boolean }>`
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
     padding:  1rem;
-    grid-template-columns: 36px 1fr;
+    grid-template-columns: 34px 1fr;
   `};
 `
 
@@ -244,7 +246,7 @@ export default function Header() {
       </Modal>
       <Title href=".">
         <UniIcon>
-          <img width={'110px'} height={'30px'} src={darkMode ? LogoDark : LogoPink} alt="logo" />
+          <img height={'30px'} src={darkMode ? (isMobile ? LogoPink : LogoDark) : LogoPink} alt="logo" />
         </UniIcon>
       </Title>
       <HeaderLinks>

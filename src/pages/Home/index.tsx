@@ -56,7 +56,7 @@ const BannerWrapper = styled(ColumnCenter)`
   background: url(${BannerBg}) center center / cover;
 `
 const BannerWrapperOption = styled(ColumnCenter)`
-  width: 70%;
+  max-width: 900px;
   text-align: center;
   left: 0;
   right: 0;
@@ -114,7 +114,10 @@ const FooterOptionButton = styled(PrimaryButton)`
 const OptionButtonText = styled(Text)`
   font-size: 1.5rem;
 `
-const ExclusiveWrapper = styled(ColumnCenter)``
+const ExclusiveWrapper = styled(ColumnCenter)`
+  max-width: 900px;
+  overflow: hidden;
+`
 const ExclusiveOption = styled.div`
   padding: 35px 0;
   width: 100%;
@@ -122,26 +125,12 @@ const ExclusiveOption = styled.div`
 const VoiceWrapper = styled(ColumnCenter)``
 const VoiceOption = styled.div`
   padding: 25px 0;
-  width: 100%;
+  max-width: 900px;
 `
 
 const AudioListWrapper = styled.div`
   padding: 50px 0;
 `
-// const Mores = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-//   /* width: 100%; */
-//   padding: 40px 0;
-// `
-// const OnLink = styled.a`
-//   padding-right: 5px;
-//   color: ${({ theme }) => theme.yellow1};
-// `
-// const LinkIcon = styled(Links)`
-//   color: ${({ theme }) => theme.yellow1};
-// `
-
 const DescWarpper = styled.div`
   padding: 0px 13px 13px 13px;
   display: flex;
@@ -193,7 +182,7 @@ const Img = styled.img`
 const ExclusiveFooterWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 62%;
+  width: 900px;
   margin: auto;
 `
 
@@ -232,15 +221,15 @@ const PresentOption = styled.div`
   padding: 4.375rem 0;
   display: flex;
   justify-content: center;
+  max-width: 900px;
 `
 const PresentOptionListWrapper = styled(AutoColumn)`
-  width: 62%;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 1.25rem;
 `
 const OptionItem = styled(ColumnCenter)`
   background: ${({ theme }) => theme.bg8};
-  padding: 50px 20px;
+  padding: 50px 42px;
   text-align: center;
 `
 const OptionItemIcon = styled.img`
@@ -263,8 +252,8 @@ const OptionItemDesc = styled.span`
 `
 const ArtsWrapper = styled(ColumnCenter)``
 const ArtOption = styled.div`
-  width: 62%;
   padding: 70px 0;
+  max-width: 900px;
 `
 const FeaturedWrapper = styled(ColumnCenter)``
 const ArtItems = styled.div`

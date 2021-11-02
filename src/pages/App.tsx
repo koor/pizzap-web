@@ -38,6 +38,7 @@ const BodyWrapper = styled.div`
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
     padding: 6rem 16px 16px 16px;
+    // padding: unset;
   `};
 `
 

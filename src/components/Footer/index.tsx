@@ -20,6 +20,7 @@ const FooterLogo = styled.img`
 const FooterText = styled.span`
   font-size: 1rem;
   font-weight: 500;
+  text-align: center;
   color: ${({ theme }) => darken(0.591, theme.text1)};
   padding: 20px 0;
   border-bottom: 1px solid ${({ theme }) => darken(0.69, theme.text1)};

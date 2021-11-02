@@ -19,26 +19,9 @@ export function ModeCarousel({ children }: { children: ReactChild[] }) {
   return (
     <Swiper
       spaceBetween={20} // 间距
-      slidesPerView={4} // 一行显示
-      centeredSlides={true}
+      slidesPerView={3} // 一行显示
+      centeredSlides={false}
       className="mySwiper"
-      onSwiper={(swiper) => {
-        if (swiper.activeIndex == 0) {
-          swiper.activeIndex = 1
-          swiper.allowSlidePrev = false
-        }
-      }}
-      onSlideChange={(swiper) => {
-        console.log(swiper)
-        if (swiper.activeIndex < swiper.slides.length) {
-          swiper.allowSlideNext = true
-          swiper.allowSlidePrev = true
-        }
-        if (swiper.activeIndex == 1) {
-          swiper.allowSlideNext = true
-          swiper.allowSlidePrev = false
-        }
-      }}
     >
       {children}
     </Swiper>

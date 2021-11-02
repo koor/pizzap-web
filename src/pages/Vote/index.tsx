@@ -1,4 +1,5 @@
-import { useState, useContext, useMemo } from 'react'
+import { useState, useContext, useMemo, useCallback, useEffect } from 'react'
+import { formatEther, parseEther } from '@ethersproject/units'
 import { Trans } from '@lingui/macro'
 import styled, { ThemeContext } from 'styled-components/macro'
 import { AutoColumn, ColumnCenter } from 'components/Column'
@@ -6,6 +7,12 @@ import { AutoColumn, ColumnCenter } from 'components/Column'
 import BannerBg from 'assets/img/banner.png'
 import { darken, transparentize } from 'polished'
 import { ExploreButton } from 'components/Button'
+
+import { VotePledgeActionModal } from './VotePledgeAction'
+import { useIVOStaking, usePNFTToken } from 'hooks/useContract'
+import JSBI from 'jsbi'
+import TransactionSubmissionModal from 'components/TransactionSubmissionModal'
+import { useActiveWeb3React } from 'hooks/web3'
 
 const IVOWrapper = styled(AutoColumn)`
   width: 100%;
@@ -15,6 +22,10 @@ const IvoOption = styled(IVOWrapper)`
   max-width: 900px;
   margin: auto;
   padding: 30px 16px 0px;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: unset;
+  `}
 `
 const BannerWrapper = styled(ColumnCenter)`
   position: relative;
@@ -27,11 +38,19 @@ const BannerWrapperText = styled.p`
   font-weight: 600;
   text-align: center;
   margin: 12.6875rem 0 0 0;
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    font-size: 2rem;
+    margin: 1.6875rem 0 0 0;
+  `}
 `
 const PoolWrapper = styled(IvoOption)`
   grid-template-columns: 1fr 1fr;
   grid-gap: 26px 16px;
   margin-top: 2.625rem;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    grid-template-columns: 1fr;
+  `}
 `
 
 const PoolItemWrapper = styled.div`
@@ -58,6 +77,7 @@ const PoolItem = styled.div`
     & > div {
       &:first-child {
         flex: 1;
+        overflow: auto;
       }
     }
   }
@@ -147,14 +167,14 @@ const WaveHead = () => (
 )
 const Waves = styled.div<{ height: number; isActive?: boolean }>`
   position: absolute;
+  overflow: hidden;
   background: ${({ isActive }) =>
       isActive ? 'linear-gradient(to top, #dd3447, #cc31e0, #d442b7)' : 'linear-gradient(to top, #666, #666)'}
     space;
   bottom: 0;
   height: ${({ height }) => (height ? height : 0) + '%'};
   width: 100%;
-  overflow-x: clip;
-  background-size: 100% calc(100% - 9.78px);
+  background-size: ${({ height }) => (height < 8 ? '100%' : '100% calc(100% - 9.78px)')};
   background-position: bottom;
   svg {
     position: absolute;
@@ -184,7 +204,156 @@ const Waves = styled.div<{ height: number; isActive?: boolean }>`
 `
 
 export default function IVO() {
+  const { account } = useActiveWeb3React()
+
   const theme = useContext(ThemeContext)
+  const ivoStaking = useIVOStaking()
+  const PnftToken = usePNFTToken()
+
+  const [hash, setHash] = useState<string | undefined>()
+  const [attempting, setAttempting] = useState(false)
+
+  const handleDismissSubmissionModal = useCallback(() => {
+    setHash(undefined)
+    setAttempting(false)
+  }, [setHash, setAttempting])
+
+  const getStatus = useCallback(async () => {
+    await ivoStaking
+      ?.getStatus(14)
+      .then(async (result: any) => {
+        console.log(result)
+      })
+      .catch((err: any) => {
+        console.log(err)
+      })
+  }, [ivoStaking])
+
+  const addProposes = useCallback(async () => {
+    await ivoStaking
+      ?.addProposes(
+        '0xB8dA6c79AA9fe6A8CAf62B2E8cD1705d9dA5C51a',
+        parseEther('37741655'),
+        parseEther('37741680'),
+        parseEther('1000000'),
+        parseEther('10000000')
+      )
+      .then(async (result: any) => {
+        console.log(result)
+
+        if (result?.wait) {
+          await result
+            .wait()
+            .then((res: any) => {
+              console.log(JSBI.toNumber(JSBI.BigInt(res.logs[0].topics[2])))
+            })
+            .catch((err: any) => console.log(err))
+        }
+      })
+      .catch((err: any) => {
+        console.log(err)
+      })
+  }, [ivoStaking])
+
+  const approve = useCallback(async () => {
+    console.log(PnftToken)
+    await PnftToken?.approve(ivoStaking?.address, '0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
+  }, [PnftToken])
+
+  const toStaking = useCallback(async () => {
+    setAttempting(true)
+    await ivoStaking
+      ?.deposit(14, parseEther('100'), 1)
+      .then(async (result: any) => {
+        if (result.hash) setHash(result.hash)
+        if (result?.wait) {
+          await result
+            .wait()
+            .then((res: any) => {
+              console.log('成功', res)
+            })
+            .catch((err: any) => console.log(err))
+        }
+      })
+      .catch((err: any) => {
+        console.log(err)
+      })
+  }, [ivoStaking])
+
+  const withdraw = useCallback(async () => {
+    setAttempting(true)
+    await ivoStaking
+      ?.withdraw(14, parseEther('100'))
+      .then(async (result: any) => {
+        if (result.hash) setHash(result.hash)
+        if (result?.wait) {
+          await result
+            .wait()
+            .then((res: any) => {
+              console.log('成功', res)
+            })
+            .catch((err: any) => console.log(err))
+        }
+      })
+      .catch((err: any) => {
+        console.log(err)
+      })
+  }, [ivoStaking])
+
+  const checkStatus = useCallback(async () => {
+    setAttempting(true)
+    await ivoStaking
+      ?.checkStatus(14)
+      .then(async (result: any) => {
+        if (result.hash) setHash(result.hash)
+        if (result?.wait) {
+          await result
+            .wait()
+            .then((res: any) => {
+              console.log(res)
+              // console.log(JSBI.toNumber(JSBI.BigInt(res.logs[0].topics[2])))
+            })
+            .catch((err: any) => console.log(err))
+        }
+      })
+      .catch((err: any) => {
+        console.log('拒绝', err)
+
+        handleDismissSubmissionModal()
+      })
+  }, [ivoStaking])
+
+  const getBalanceOf = useCallback(async () => {
+    await ivoStaking
+      ?.balanceOf(14, account)
+      .then(async (result: any) => {
+        console.log(result)
+      })
+      .catch((err: any) => {
+        console.log(err)
+      })
+  }, [ivoStaking])
+
+  const getInfo = useCallback(async () => {
+    await ivoStaking
+      ?.getInfo(14)
+      .then(async (result: any) => {
+        console.log(result)
+      })
+      .catch((err: any) => {
+        console.log(err)
+      })
+  }, [ivoStaking])
+
+  const [modalOpen, setModalOpen] = useState(false)
+  const handleModalSelectorClick = useCallback(() => {
+    setModalOpen(true)
+  }, [setModalOpen])
+
+  const handleDismissActionModal = useCallback(() => {
+    setModalOpen(false)
+  }, [setModalOpen])
+
   return (
     <IVOWrapper>
       <BannerWrapper>
@@ -194,6 +363,17 @@ export default function IVO() {
           </BannerWrapperText>
         </IvoOption>
       </BannerWrapper>
+      <AutoColumn gap="md">
+        <IvoButton onClick={addProposes}>添加提案信息到IVO质押合约</IvoButton>
+        <IvoButton onClick={approve}>approve</IvoButton>
+        <IvoButton onClick={toStaking}>deposit</IvoButton>
+        <IvoButton onClick={withdraw}>withdraw</IvoButton>
+        <IvoButton onClick={checkStatus}>checkStatus</IvoButton>
+        <IvoButton onClick={getStatus}>getStatus</IvoButton>
+        <IvoButton onClick={getBalanceOf}>balanceOf</IvoButton>
+        <IvoButton onClick={getInfo}>getInfo</IvoButton>
+      </AutoColumn>
+
       <PoolWrapper>
         <PoolItemWrapper>
           <PoolItem>
@@ -222,7 +402,7 @@ export default function IVO() {
                 <Trans>99 days 12 hours 12 mins</Trans>
               </VoteText>
             </CountdownWrapper>
-            <IvoButton>
+            <IvoButton onClick={handleModalSelectorClick}>
               <IvoButtonText>
                 <Trans>IVO NOW</Trans>
               </IvoButtonText>
@@ -310,7 +490,69 @@ export default function IVO() {
             </ProgressTextWrapper>
           </PoolItem>
         </PoolItemWrapper>
+        <PoolItemWrapper>
+          <PoolItem>
+            <ItemTitle>
+              <TitleIcon />
+              <VoteText size={16} weight={600}>
+                <Trans>Pool Name</Trans>
+              </VoteText>
+            </ItemTitle>
+            <GoalWrapper>
+              <VoteText size={12} color={darken(0.64, theme.text1)}>
+                <Trans>Funding Goal</Trans>
+              </VoteText>
+              <VoteText size={14}>
+                <Trans>Min: 100,000 PNFT</Trans>
+              </VoteText>
+              <VoteText size={14}>
+                <Trans>Max: 100,000,000 PNFT</Trans>
+              </VoteText>
+            </GoalWrapper>
+            <CountdownWrapper>
+              <VoteText size={12} color={darken(0.64, theme.text1)}>
+                <Trans>Ends in</Trans>
+              </VoteText>
+              <VoteText size={14}>
+                <Trans>99 days 12 hours 12 mins</Trans>
+              </VoteText>
+            </CountdownWrapper>
+            <IvoButton>
+              <IvoButtonText>
+                <Trans>IVO NOW</Trans>
+              </IvoButtonText>
+            </IvoButton>
+          </PoolItem>
+          <PoolItem>
+            <ProgressWrapper>
+              <VoteText
+                size={14}
+                color={theme.text6}
+                style={{ position: 'absolute', top: 14, textAlign: 'center', zIndex: 3 }}
+              >
+                100,000,000 PNFT FUNDED
+              </VoteText>
+              <Max></Max>
+              <Min height={40}></Min>
+              <VoteText size={14} style={{ position: 'absolute', bottom: 14, textAlign: 'center', zIndex: 3 }}>
+                200,000 PNFT FUNDED
+              </VoteText>
+
+              <Waves height={50} isActive={false}>
+                <WaveHead />
+                <WaveHead />
+              </Waves>
+            </ProgressWrapper>
+            <ProgressTextWrapper height={40 + 3}>
+              <VoteText size={10}>
+                <Trans>min</Trans>
+              </VoteText>
+            </ProgressTextWrapper>
+          </PoolItem>
+        </PoolItemWrapper>
       </PoolWrapper>
+      <VotePledgeActionModal isOpen={modalOpen} onDismiss={handleDismissActionModal} />
+      <TransactionSubmissionModal isOpen={attempting} hash={hash} onDismiss={handleDismissSubmissionModal} />
     </IVOWrapper>
   )
 }
